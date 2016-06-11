@@ -1,0 +1,16 @@
+.header-btn{
+  border: 1px solid black;
+  height: 80%;
+  width:100px;
+  font-family: Raleway;
+  background-color: white;
+  margin-right:10px;
+  color:#black;
+  border-radius:2px;
+}
+.header-btn:hover{
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  border-radius:2px;
+}

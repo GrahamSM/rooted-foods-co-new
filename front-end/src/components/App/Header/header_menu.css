@@ -1,0 +1,8 @@
+.header-menu{
+  width: 100%;
+  height: 80px;
+  background: white;
+  display:flex;
+  align-items:center;
+  justify-content: flex-end;
+}

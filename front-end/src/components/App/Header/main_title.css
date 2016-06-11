@@ -1,0 +1,12 @@
+a{
+  text-decoration: none;
+  color: black;
+}
+.main_title{
+  float:left;
+  margin-left:10px;
+  font-family: Raleway;
+  display: inline-block;
+  font-size:2em;
+  color:#black;
+}
