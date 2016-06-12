@@ -6,19 +6,22 @@ export default class SignUpForm extends React.Component{
     super();
   }
 
-  myInit = { method: 'GET',
-                 mode: 'cors',
-                 headers: new Headers(),
-                 cache: 'default' };
-
-  handleSubmit(e, myInit){
+  handleSubmit(e){
     e.preventDefault();
-    fetch('http://localhost:3000/users')
-    .then(function(response) {
-        response = response.json();
-        debugger;
-      })
-    }
+    fetch("http://localhost:3000/users",
+    {
+      method: "POST",
+      mode: 'cors',
+      header: new Headers(),
+      cache: 'default'
+    })
+    .then(function(response){
+      debugger;
+    })
+    .catch(function(response){
+      debugger;
+    })
+  }
 
   render(){
     return(
