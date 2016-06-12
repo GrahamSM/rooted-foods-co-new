@@ -1,0 +1,37 @@
+.main-banner-call{
+  width:200px;
+  height:200px;
+}
+.main-action-btn{
+  border: 1px solid black;
+  height: 30%;
+  width:150px;
+  background-color: white;
+  margin-right:10px;
+  color: white;
+  background-color: black;
+  border-radius:2px;
+  margin: auto;
+  border-radius: 2px;
+  font-size: 1em;
+  font-family: Raleway;
+}
+
+.main-action-btn:hover{
+  border: 1px solid black;
+  height: 30%;
+  width:150px;
+  background-color: white;
+  margin-right:10px;
+  color: black;
+  background-color: white;
+  border-radius:2px;
+  margin: auto;
+  border-radius: 2px;
+  font-size: 1em;
+  font-family: Raleway;
+}
+
+#fresh{
+  color:white;
+}
