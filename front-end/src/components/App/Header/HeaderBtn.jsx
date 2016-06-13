@@ -5,7 +5,6 @@ import { Link } from "react-router";
 export default class HeaderBtn extends React.Component{
   constructor(props){
     super(props);
-    console.log(this.props.children);
   }
   render(){
     return(

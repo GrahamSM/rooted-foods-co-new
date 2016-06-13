@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
-var Link = require('react-router').Link
+var Link = require('react-router').Link;
 var config = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
@@ -22,6 +22,10 @@ var config = {
         loaders: ['react-hot','babel'], // The module to load. "babel" is short for "babel-loader"
         exclude: /node_modules/,
         include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
       }
     ]
   },

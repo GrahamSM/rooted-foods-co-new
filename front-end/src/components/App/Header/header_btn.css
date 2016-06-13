@@ -13,4 +13,5 @@
   border: 1px solid white;
   color: white;
   border-radius:2px;
+  transition-duration: 1s;
 }
