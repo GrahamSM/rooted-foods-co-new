@@ -6,7 +6,6 @@
   border: 1px solid black;
   height: 30%;
   width:150px;
-  background-color: white;
   margin-right:10px;
   color: white;
   background-color: black;
@@ -24,12 +23,12 @@
   background-color: white;
   margin-right:10px;
   color: black;
-  background-color: white;
   border-radius:2px;
   margin: auto;
   border-radius: 2px;
   font-size: 1em;
   font-family: Raleway;
+  transition-duration: 1s;
 }
 
 #fresh{

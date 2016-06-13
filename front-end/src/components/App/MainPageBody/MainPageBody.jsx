@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+import styles from './main_page_body.css';
+import FeaturedProductDisplay from './FeaturedProducts/FeaturedProductDisplay.jsx'
+import MainBanner from './MainBanner/MainBanner.jsx';
+
+
+export default class MainPageBody extends React.Component{
+  constructor(){
+    super();
+  }
+
+  render(){
+    return(
+      <div className = 'main-page-body'>
+        <MainBanner />
+        <FeaturedProductDisplay />
+      </div>
+    );
+  }
+}
