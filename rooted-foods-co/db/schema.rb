@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611171615) do
+ActiveRecord::Schema.define(version: 20160613174127) do
+
+  create_table "api_keys", force: :cascade do |t|
+    t.string   "access_token"
+    t.datetime "expires_at"
+    t.datetime "last_access"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token"
+  add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id"
 
   create_table "bundles", force: :cascade do |t|
     t.string   "description"
@@ -66,6 +78,11 @@ ActiveRecord::Schema.define(version: 20160611171615) do
     t.date     "time"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "password_digest"
+    t.boolean  "admin"
+    t.string   "username"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email"
 
 end
