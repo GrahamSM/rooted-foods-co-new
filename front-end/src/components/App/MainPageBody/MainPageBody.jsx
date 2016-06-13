@@ -13,7 +13,12 @@ export default class MainPageBody extends React.Component{
     return(
       <div className = 'main-page-body'>
         <MainBanner />
-        <FeaturedProductDisplay />
+        <div className='featured-product-container'>
+          <FeaturedProductDisplay />
+          <FeaturedProductDisplay />
+          <FeaturedProductDisplay />
+          <FeaturedProductDisplay />
+        </div>
       </div>
     );
   }
