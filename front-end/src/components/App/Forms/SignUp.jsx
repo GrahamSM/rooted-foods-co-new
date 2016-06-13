@@ -25,7 +25,7 @@ export default class SignUpForm extends React.Component{
         header: new Headers(),
         data: JSON.stringify(this.state),
         success: (response) => {
-          // localStorage.set('_')
+          localStorage.setItem("access_token", response.api_key.access_token)
           this.context.router.push('/');
         },
         error: function(response){
