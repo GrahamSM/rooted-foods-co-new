@@ -13,10 +13,32 @@
 }
 
 .cart-item-order{
+  display: flex;
   width: 60%;
   border: 1px solid black;
   height: 100px;
-  margin-left: 25px;
+  margin-left: 15px;
+  align-items: center;
+}
+
+.cart-item-description{
+  border: 1px solid black;
+  height: 90%;
+  width: 50%;
+}
+
+.cart-item-quantity{
+  height: 90%;
+  border: 1px solid black;
+  width: 20%;
+  text-align:center;
+}
+
+.cart-item-price{
+  height: 90%;
+  border: 1px solid black;
+  width: 20%;
+  text-align: center;
 }
 
 .cart-item-total{
