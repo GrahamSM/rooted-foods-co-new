@@ -13,6 +13,7 @@ import HeaderBtn from './components/App/Header/HeaderBtn.jsx';
 import SignUpForm from './components/App/Forms/SignUp.jsx';
 import LogInForm from './components/App/Forms/LogIn.jsx';
 import MainBody from './components/App/MainPageBody/MainPageBody.jsx';
+import ViewCart from './components/App/Cart/ViewCart.jsx';
 
 
 
@@ -22,5 +23,6 @@ ReactDOM.render(
       <IndexRoute component = { MainBody } ></IndexRoute>
       <Route path = "/signup" component = { SignUpForm } ></Route>
       <Route path = "/login" component = { LogInForm } ></Route>
-    </Route >
+      <Route path = "/view-cart" component = {ViewCart} ></Route>
+    </Route>
   </Router>, document.getElementById('app'));
