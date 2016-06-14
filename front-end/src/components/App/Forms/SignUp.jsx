@@ -6,7 +6,7 @@ export default class SignUpForm extends React.Component {
     static contextTypes = {
         router: React.PropTypes.object.isRequired
     }
-
+s
     constructor(props) {
         super(props);
         this.state = {};

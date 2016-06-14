@@ -46,7 +46,7 @@ export default class LogIn extends React.Component {
                     </div>
                     <div className="input clearfix">
                         <label htmlFor="password">Password</label>
-                        <input type="text" id="password" name="password" maxLength="12" autoCorrect="off" autoCapitalize="off"></input>
+                        <input type="password" id="password" name="password" maxLength="12" autoCorrect="off" autoCapitalize="off"></input>
                         <span className="toggle-mask">Hide</span>
                     </div>
                     <input type="submit" id="submit" name="submit" value="Create Account"></input>
