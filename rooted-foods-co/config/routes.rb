@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :bundles, only: [:index, :show]
-  resources :session, only: [:create, :destroy]
+  resource :session, only: [:create, :destroy]
 
 
   # Example resource route with options:
