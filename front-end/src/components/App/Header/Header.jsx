@@ -22,7 +22,7 @@ export default class Header extends React.Component {
         );
     };
 
-    _handleClick = (route) => {
+    _handleClick = (route) => { ///If the user is logged in, this handler function will log the user out. (Passed down as prop to child components)
         const {router} = this.context
         if (localStorage.access_token) {
             var token = localStorage.access_token

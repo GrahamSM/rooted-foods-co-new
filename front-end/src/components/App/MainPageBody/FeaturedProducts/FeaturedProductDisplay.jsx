@@ -6,6 +6,7 @@ export default class FeaturedProductDisplay extends React.Component {
         super();
     }
     render() {
+      ///TODO: Retrieve products with parent function _getTopProducts
         return (
             <div className='featured_product'>
                 <div className='product-image'>
