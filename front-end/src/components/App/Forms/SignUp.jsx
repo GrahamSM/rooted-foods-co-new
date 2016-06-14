@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import style from './sign_up_form.css'
-var Reqwest = require('reqwest');
+import Reqwest from 'reqwest';
 
 
 export default class SignUpForm extends React.Component{

@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './header_menu.css';
 import MainTitle from './MainTitle.jsx';
 import HeaderBtn from './HeaderBtn.jsx'
 
+const HeaderMenu = ({buttonClickHandler, isAuthenticated}) => {
 
-export default class Header extends React.Component{
-  constructor(){
-    super();
-    if (localStorage.access_token){
-      this.state = {label: "Log Out", route: "logout"};
-    }
-    else {
-      this.state = {label: "Log In", route: "login", label_two: "Sign Up", route_two: "Sign Up"};
-    }
-    console.log(this.state);
-  }
+  const buttons = isAuthenticated
+  ? [{label: "Log Out", route: "/"}]
+  : [
+      {label: "Log In", route: "login"},
+      {label: "Sign Up", route: "signup"}
+    ];
 
-  render(){
+  const headerComp = buttons.map( ({label, route}) =>
+    <HeaderBtn
+      {...{label, route}}
+      key={label}
+      clickHandler = {buttonClickHandler}
+    />)
 
-    return(
-      <div className = 'header-menu'>
-        <HeaderBtn label='Sign Up' route="signup"/>
-        <HeaderBtn label='Log In' route="login"/>
-      </div>
-    );
-  }
+  return (
+    <div className = 'header-menu'>
+      { headerComp }
+    </div>
+  );
 }
+
+export default HeaderMenu;

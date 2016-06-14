@@ -7,8 +7,8 @@ export default class MainTitle extends React.Component{
   constructor(){
     super();
     this.state = {title: "#getrooted"}
-
   }
+  
   render(){
     return(
       <div className = 'main_title'>

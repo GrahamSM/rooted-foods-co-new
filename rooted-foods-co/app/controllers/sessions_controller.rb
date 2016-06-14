@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
  # creating a session doesn't require you to have an access token
  skip_before_action :ensure_authenticated_user, :only => [:create]
 
@@ -21,8 +21,7 @@ class SessionController < ApplicationController
 
  # Clearing user key when they log out
  def destroy
-   api_key = ApiKey.where(access_token: params[:token]).first
-
+   api_key = ApiKey.where(access_token: params[:_json]).first
    api_key.access_token = ''
    api_key.expires_at = Time.now
    if api_key.save
