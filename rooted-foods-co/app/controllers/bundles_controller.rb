@@ -7,7 +7,6 @@ class BundlesController < ApplicationController
 
     def top_four
       @bundles = Bundle.first(4)
-      binding.pry
       respond_to do |format|
          format.html
          format.json { render :json => @bundles.to_json(:include => :products)}
