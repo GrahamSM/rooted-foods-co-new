@@ -29,7 +29,9 @@ export default class FeaturedProductContainer extends React.Component {
     if(this.state.loading){
 
     }else{
-      return this.state.top_products.map(({bundle_description, bundle_name, products, image, price}) => <FeaturedProductDisplay {...{bundle_description, bundle_name, products, image, price}} key={price}/>)
+      return this.state.top_products.map(
+        ({bundle_description, bundle_name, products, image, price}) => <FeaturedProductDisplay {...{bundle_description, bundle_name, products, image, price}} key={price}/>
+      )
     }
   }
 
