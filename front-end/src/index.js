@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import {
+    Router,
+    Route,
+    IndexRoute,
+    browserHistory
+} from 'react-router';
 import Header from './components/App/Header/Header.jsx';
 import Layout from './components/App.jsx';
 import MainTitle from './components/App/Header/MainTitle.jsx';
@@ -12,11 +17,10 @@ import MainBody from './components/App/MainPageBody/MainPageBody.jsx';
 
 
 ReactDOM.render(
-  <Router history={ browserHistory }>
-    <Route path="/" component={Layout}>
-      <IndexRoute component={MainBody}></IndexRoute>
-      <Route path="/signup" component={SignUpForm}></Route>
-      <Route path="/login" component={LogInForm}></Route>
-    </Route>
-  </Router>,
-  document.getElementById('app'));
+  <Router history = {browserHistory}>
+    <Route path = "/" component = { Layout }>
+      <IndexRoute component = { MainBody } ></IndexRoute>
+      <Route path = "/signup" component = { SignUpForm } ></Route>
+      <Route path = "/login" component = { LogInForm } ></Route>
+    </Route >
+  </Router>, document.getElementById('app'));

@@ -1,13 +1,16 @@
 .featured_product{
   border-radius: 5px;
-  width: 20%;
+  width: 22.5%;
   height:500px;
   display: inline-block;
-  margin: 30px;
-  box-shadow: 0px 5px 43px rgba( 0, 0, 0, 0.48 );
+  margin: 15px;
+  box-shadow: 0px 5px 43px rgba( 0, 0, 0, 0.30 );
   font-family: Raleway;
   overflow: hidden;
+  transition:height 1s;
+  -webkit-transition:height 1s;
 }
+
 
 .product-image{
   height:50%;
