@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  get 'bundles/top_four' => 'bundles#top_four'
+
 
   resources :users, only: [:new, :create, :update, :edit]
   resources :orders, only: [:new, :create, :update, :edit, :delete]

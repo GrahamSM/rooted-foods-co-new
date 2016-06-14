@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613174127) do
+ActiveRecord::Schema.define(version: 20160614180859) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160613174127) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "image"
+    t.decimal  "price"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -47,6 +49,16 @@ ActiveRecord::Schema.define(version: 20160613174127) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  create_table "product_bundles", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "bundle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_bundles", ["bundle_id"], name: "index_product_bundles_on_bundle_id"
+  add_index "product_bundles", ["product_id"], name: "index_product_bundles_on_product_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

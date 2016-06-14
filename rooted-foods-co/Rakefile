@@ -4,3 +4,15 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+task "db:populate" => [ :environment ] do
+  6.times do |i|
+    my_bundle = Bundle.create!(description: Faker::Hacker.say_something_smart, image: Faker::Placeholdit.image)
+    3.times do |i|
+      my_product = Product.create!(name: Faker::Company.name, description: Faker::Company.catch_phrase, distributor: Faker::Internet.user_name, SKU: 'SOMEPRO', price: Faker::Commerce.price)
+      ProductBundle.create!(bundle: my_bundle, product: my_product)
+    end
+    my_bundle.set_price
+    my_bundle.save!
+  end
+end
