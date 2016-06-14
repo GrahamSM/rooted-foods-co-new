@@ -1,0 +1,36 @@
+.featured-product-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-product-header{
+  font-size: 2em;
+  font-weight: 900;
+  display: block;
+  width: 300px;
+  margin: 75px auto 15;
+  position: relative;
+  font-family: Raleway;
+
+  &:after,
+  &:before {
+    content: '';
+    height: 1px;
+    width: 400px;
+    display: block;
+    position: absolute;
+    background-color: #ddd;
+    top: 18px;
+    margin-top:10px;
+
+  }
+
+  &:before {
+    left: -450px;
+  }
+
+  &:after {
+    right: -450px;
+  }
+}
