@@ -30,7 +30,7 @@ export default class FeaturedProductContainer extends React.Component {
 
     }else{
       return this.state.top_products.map(
-        ({id, bundle_description, bundle_name, products, image, price}) => <FeaturedProductDisplay {...{id, bundle_description, bundle_name, products, image, price}} key={price}/>
+        ({id, bundle_description, bundle_name, products, image, price}) => <FeaturedProductDisplay {...{id, bundle_description, bundle_name, products, image, price}} key={price} addToCart={this.props.addToCart}/>
       )
     }
   }
