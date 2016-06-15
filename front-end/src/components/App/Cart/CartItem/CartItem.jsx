@@ -10,22 +10,21 @@ export default class CartItem extends React.Component {
     render() {
         return (
           <div className = 'cart-item-wrapper'>
-            <div className = 'cart-item-picture'>
-              <img src="http://image.desk7.net/Cate%20Wallpapers/7230_1280x800.jpg" height="100%" width="100%"></img>
-            </div>
-            <div className = 'cart-item-order'>
-              <div className = 'cart-item-description'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              <div className = 'cart-item-picture'>
+                <img src={this.props.image} height="100%" width="100%" alt={this.props.title} Cart></img>
+              </div>
+              <div className='cart-item-name'>
+                {this.props.name}
               </div>
               <div className = "cart-item-quantity">
-                12
+                {this.props.quantity}
               </div>
               <div className = "cart-item-price">
-              $23.99
+              {this.props.price}
               </div>
-            </div>
-            <div className = 'cart-item-total'>
-            </div>
+              <div className = 'cart-item-total'>
+                {this.props.total}
+              </div>
           </div>
         );
     }
