@@ -51,7 +51,7 @@ export default class MainPageBody extends React.Component {
         }).then(response => {
           debugger;
         }).catch((error) => {
-            alert(error.message);
+          debugger;
         })
       }
     }

@@ -9,25 +9,25 @@ class OrdersController < ApplicationController
     if !(@current_order.empty?)
       @products = Bundle.find(params[:id]).products
       @products.each do |product|
-        @current_order.products << products
+        @current_order.products << product
       end
       if @current_order.save
-        #RENDER JSON
+        render json: {}, status: 200
       else
-        #RENDER ERROR JSON
+        render json: {errors: @current_order.errors.messages}, status: 422
       end
     else
       @products = Bundle.find(params[:id]).products
-      @order = Order.create(order_params)
-      @order.user = current_user
-      @order.active = true;
+      @current_order = Order.create(order_params)
+      @current_order.user = current_user
+      @current_order.active = true;
       @products.each do |product|
-        @order.products << product
+        @current_order.products << product
       end
-      if @order.save
-        # send back json
+      if @current_order.save
+        render json: {}, status: 200
       else
-        # send back error
+        render json: {errors: @current_order.errors.messages}, status: 422
       end
     end
   end
