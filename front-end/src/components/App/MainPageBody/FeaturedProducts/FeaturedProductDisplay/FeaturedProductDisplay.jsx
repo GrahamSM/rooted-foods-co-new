@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './featured_product_display.scss';
-import QuantitySelector from './QuantitySelector.jsx';
+import QuantitySelector from './QuantitySelector/QuantitySelector.jsx';
 
 export default class FeaturedProductDisplay extends React.Component {
   constructor(props) {
@@ -23,8 +23,15 @@ export default class FeaturedProductDisplay extends React.Component {
           <div className="desc">{this.props.bundle_description}</div>
           <span className="price">{this.props.price}</span>
         </div>
-        <QuantitySelector />
+        <QuantitySelector incrementValue={this._incrementValue} decrementValue={this._decrementValue} />
       </div>
     );
+  }
+  _incrementValue = (e) =>{
+    debugger;
+  }
+
+  _decrementValue = (e) =>{
+    debugger;
   }
 }

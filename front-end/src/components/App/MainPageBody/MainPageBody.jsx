@@ -18,7 +18,7 @@ export default class MainPageBody extends React.Component {
         <div className='main-page-body'>
           <MainBanner/>
           <div className='featured-product-header'>Featured Products</div>
-          <FeaturedProductContainer getTopProducts={this._getTopProducts} addToCart={this._addToCart}/>
+          <FeaturedProductContainer getTopProducts={this._getTopProducts} addToCart={this._addToCart} />
         </div>
       );
     }

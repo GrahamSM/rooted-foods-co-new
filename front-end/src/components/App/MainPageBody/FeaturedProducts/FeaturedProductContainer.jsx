@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './featured_product_container.scss';
-import FeaturedProductDisplay from './FeaturedProductDisplay.jsx';
+import FeaturedProductDisplay from './FeaturedProductDisplay/FeaturedProductDisplay.jsx';
 import Reqwest from 'reqwest';
 
 
@@ -30,7 +30,7 @@ export default class FeaturedProductContainer extends React.Component {
 
     }else{
       return this.state.top_products.map(
-        ({id, bundle_description, bundle_name, products, image, price}) => <FeaturedProductDisplay {...{id, bundle_description, bundle_name, products, image, price}} key={price} addToCart={this.props.addToCart}/>
+        ({id, bundle_description, bundle_name, products, image, price}) => <FeaturedProductDisplay {...{id, bundle_description, bundle_name, products, image, price}} key={price} addToCart={this.props.addToCart} />
       )
     }
   }
