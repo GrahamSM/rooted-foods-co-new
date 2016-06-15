@@ -7,23 +7,17 @@ import Reqwest from 'reqwest';
 
 export default class MainPageBody extends React.Component {
     constructor() {
-        super();
+      super();
     }
 
     render() {
-        return (
-            <div className='main-page-body'>
-                <MainBanner/>
-                <div className='featured-product-header'>Featured Products</div>
-                {/*<div className='featured-product-container'>*/}
-                    <FeaturedProductContainer getTopProducts={this._getTopProducts}/>
-                    {/*<FeaturedProductDisplay/>
-                    <FeaturedProductDisplay/>
-                    <FeaturedProductDisplay/>
-                    <FeaturedProductDisplay/>*/}
-                {/*</div>*/}
-            </div>
-        );
+      return (
+        <div className='main-page-body'>
+          <MainBanner/>
+          <div className='featured-product-header'>Featured Products</div>
+          <FeaturedProductContainer getTopProducts={this._getTopProducts} addToCart={this._addToCart}/>
+        </div>
+      );
     }
 
     _getTopProducts = () => {
@@ -39,5 +33,10 @@ export default class MainPageBody extends React.Component {
       }).catch((error) => {
           alert(error.message);
       })
+    }
+
+    _addToCart = (e) => {
+      e.preventDefault();
+      let url = e.target.closest('button').id;
     }
 }
