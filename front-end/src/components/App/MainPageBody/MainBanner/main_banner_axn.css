@@ -29,6 +29,7 @@
   font-size: 1em;
   font-family: Raleway;
   transition-duration: 1s;
+  cursor: pointer;
 }
 
 #fresh{

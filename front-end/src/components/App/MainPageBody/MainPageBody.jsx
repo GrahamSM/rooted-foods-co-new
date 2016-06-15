@@ -35,8 +35,24 @@ export default class MainPageBody extends React.Component {
       })
     }
 
-    _addToCart = (e) => {
-      e.preventDefault();
-      let url = e.target.closest('button').id;
+    _addToCart = (id) => {
+      let url = 'http://localhost:3000/orders'
+      if (localStorage.access_token){
+        let token = localStorage.access_token;
+        return Reqwest({
+          url: url,
+          type: 'json',
+          method: 'post',
+          contentType: 'application/json',
+          headers: {
+              'X-ACCESS-TOKEN': token
+          },
+          data: JSON.stringify({token: token, id: id})
+        }).then(response => {
+          debugger;
+        }).catch((error) => {
+            alert(error.message);
+        })
+      }
     }
 }
