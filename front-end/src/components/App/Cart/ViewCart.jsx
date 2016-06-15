@@ -13,16 +13,16 @@ export default class ViewCart extends React.Component {
     componentWillMount = () => {
       this.setState({loading: true})
       this._getUserProducts()
-      .then((response) => {
-          debugger;
+      .then((cart_items) => {
+        this.setState({cart_items, loading: false})
       })
       .catch((error) => {
-        debugger;
+        alert(error.messages);
+        // TODO: Use toaster
       })
     }
 
     _getUserProducts = () => {
-        //TODO: Make reqwest, return JSON with products
         if (localStorage.access_token){
           let token = localStorage.access_token
         return Reqwest({
@@ -34,7 +34,7 @@ export default class ViewCart extends React.Component {
                 'X-ACCESS-TOKEN': token
             },
         }).then(response => {
-          return response
+          return response;
           // TODO: Use toaster
         }).catch((error) => {
             alert(error.message);
@@ -43,16 +43,25 @@ export default class ViewCart extends React.Component {
       }
     }
 
+    _setCartComp(){
+      if(this.state.loading){
+      }else{
+        return this.state.cart_items[0].products.map(
+          ({id, name, price}) => <CartItem {...{name, price}} key={id}/>
+        )
+      }
+    }
+
     render() {
       // TODO: Method to return all items in users cart, and map those items to a CartItem component
         return (
           <div className="cart-page-wrapper">
             <CartHead />
-            <CartItem name={"Tomatoes"} quantity={'3'} price={'2'} total={'6'} />
-            <CartItem name={"Cherries"} quantity={'5'} price={'3'} total={'15'} />
-            <CartItem name={"Name"} quantity={'Quantity'} price={'Price'} total={'Total'} />
-            <CartItem name={"Name"} quantity={'Quantity'} price={'Price'} total={'Total'} />
+            {this._setCartComp()}
           </div>
         );
     }
 }
+
+
+// TODO: ORDER ITEM IN DB FOR QUANTITIES!

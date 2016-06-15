@@ -54,7 +54,7 @@ export default class MainPageBody extends React.Component {
           },
           data: JSON.stringify({token: token, id: id})
         }).then(response => {
-          debugger;
+          // TODO: USE TOASTER!
         }).catch((error) => {
 
         })

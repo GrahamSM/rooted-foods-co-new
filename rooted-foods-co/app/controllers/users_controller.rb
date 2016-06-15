@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def get_products
     if current_user
-      binding.pry
       @order = current_user.orders.where(active: true, completed: false)
       render json: @order.to_json(:include => [:products])
 

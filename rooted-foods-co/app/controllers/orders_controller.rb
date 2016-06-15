@@ -5,8 +5,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @current_order = current_user.orders.where(active: true)
-    if !(@current_order.empty?)
+    @current_order = current_user.orders.where(active: true, completed: false).first
+    if (@current_order)
       @products = Bundle.find(params[:id]).products
       @products.each do |product|
         @current_order.products << product
