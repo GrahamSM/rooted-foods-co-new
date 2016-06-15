@@ -8,7 +8,7 @@ export default class FeaturedProductDisplay extends React.Component {
     render() {
       ///TODO: Retrieve products with parent function _getTopProducts
         return (
-            <div className='featured_product'>
+            <div className='featured_product' id={'product/'+this.props.id}>
                 <div className='product-image'>
                     <img src={this.props.image} alt="Smiley face" height="100%" width="100%"></img>
                 </div>
