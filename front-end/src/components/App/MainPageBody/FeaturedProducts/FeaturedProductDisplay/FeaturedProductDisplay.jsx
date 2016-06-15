@@ -23,15 +23,11 @@ export default class FeaturedProductDisplay extends React.Component {
           <div className="desc">{this.props.bundle_description}</div>
           <span className="price">{this.props.price}</span>
         </div>
-        <QuantitySelector incrementValue={this._incrementValue} decrementValue={this._decrementValue} />
+        <QuantitySelector incrementValue={this._incrementValue} decrementValue={this._decrementValue}/>
       </div>
     );
   }
-  _incrementValue = (e) =>{
-    debugger;
-  }
 
-  _decrementValue = (e) =>{
-    debugger;
-  }
+
+
 }
