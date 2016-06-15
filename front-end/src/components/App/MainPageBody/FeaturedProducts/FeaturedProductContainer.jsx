@@ -15,7 +15,7 @@ export default class FeaturedProductContainer extends React.Component {
     .then((response) => {
       let top_products = []
       for (var i = 0; i < response.length; i++){
-        let single_bundle = {bundle_description: response[i].description, bundle_name: "Some Name", products: response[i].products, image: response[i].image, price: response[i].price};
+        let single_bundle = {id: response[i].id, bundle_description: response[i].description, bundle_name: "Some Name", products: response[i].products, image: response[i].image, price: response[i].price};
         top_products.push(single_bundle)
       }
       this.setState({top_products, loading: false})
@@ -30,7 +30,7 @@ export default class FeaturedProductContainer extends React.Component {
 
     }else{
       return this.state.top_products.map(
-        ({bundle_description, bundle_name, products, image, price}) => <FeaturedProductDisplay {...{bundle_description, bundle_name, products, image, price}} key={price}/>
+        ({id, bundle_description, bundle_name, products, image, price}) => <FeaturedProductDisplay {...{id, bundle_description, bundle_name, products, image, price}} key={price}/>
       )
     }
   }
