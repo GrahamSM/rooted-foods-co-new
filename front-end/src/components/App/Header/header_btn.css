@@ -1,17 +1,19 @@
 .header-btn{
-  border: 1px solid black;
+  border: 1px solid white;
   height: 75%;
   width:100px;
   font-family: Raleway;
   background-color: white;
   margin-right:10px;
   color:#black;
-  border-radius:5px;
+  font-size: 18px;
+  /*border-radius:5px;*/
 }
 .header-btn:hover{
   background-color: black;
   border: 1px solid white;
   color: white;
-  border-radius:5px;
+  /*border-radius:5px;*/
   transition-duration: 1s;
+  cursor: pointer;
 }

@@ -9,7 +9,7 @@ task "db:populate" => [ :environment ] do
   6.times do |i|
     my_bundle = Bundle.create!(description: Faker::Hacker.say_something_smart, image: Faker::Placeholdit.image)
     3.times do |i|
-      my_product = Product.create!(name: Faker::Company.name, description: Faker::Company.catch_phrase, distributor: Faker::Internet.user_name, SKU: 'SOMEPRO', price: Faker::Commerce.price)
+      my_product = Product.create!(name: Faker::Company.name, description: Faker::Company.catch_phrase, distributor: Faker::Internet.user_name, SKU: 'SOMEPRO', price: Faker::Commerce.price, images: "https://placehold.it/300x300.png/000")
       ProductBundle.create!(bundle: my_bundle, product: my_product)
     end
     my_bundle.set_price

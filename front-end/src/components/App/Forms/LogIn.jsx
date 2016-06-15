@@ -49,7 +49,7 @@ export default class LogIn extends React.Component {
                         <input type="password" id="password" name="password" maxLength="12" autoCorrect="off" autoCapitalize="off"></input>
                         <span className="toggle-mask">Hide</span>
                     </div>
-                    <input type="submit" id="submit" name="submit" value="Create Account"></input>
+                    <input type="submit" id="submit" name="submit" value="#getrooted"></input>
                 </form>
             </div>
         );

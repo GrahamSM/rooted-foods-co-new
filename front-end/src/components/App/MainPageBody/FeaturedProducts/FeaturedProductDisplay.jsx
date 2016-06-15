@@ -5,6 +5,7 @@ export default class FeaturedProductDisplay extends React.Component {
   constructor(props) {
       super(props);
   }
+
   render() {
     return (
       <div className='featured_product'>
@@ -12,7 +13,7 @@ export default class FeaturedProductDisplay extends React.Component {
           <img src={this.props.image} alt="Smiley face" height="100%" width="100%"></img>
         </div>
         <div className='product-content'>
-          <button className="buy" id={'product/'+this.props.id} onClick={this.props.addToCart}>
+          <button className="buy" onClick={ () => { this.props.addToCart(this.props.id) }}>
               <span className='cart-icon'>
                   <i className="fa fa-cart-plus"></i>
               </span>

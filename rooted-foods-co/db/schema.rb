@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614180859) do
+ActiveRecord::Schema.define(version: 20160615180441) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token"
@@ -40,14 +40,25 @@ ActiveRecord::Schema.define(version: 20160614180859) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
+  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id"
+
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.boolean  "recurring"
     t.boolean  "active"
     t.integer  "bundle_id"
     t.integer  "transaction_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "completed",      default: false
   end
 
   create_table "product_bundles", force: :cascade do |t|

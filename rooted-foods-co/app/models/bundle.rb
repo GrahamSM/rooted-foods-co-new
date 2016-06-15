@@ -1,5 +1,4 @@
 class Bundle < ActiveRecord::Base
-  has_many :orders
   has_many :product_bundles
   has_many :products, through: :product_bundles
 

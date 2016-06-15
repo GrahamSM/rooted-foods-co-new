@@ -37,6 +37,7 @@
     "history": "^1.17.0",
     "precss": "^1.4.0",
     "react-router": "^2.4.1",
+    "react-toastr": "^2.7.0",
     "rucksack-css": "^0.8.6"
   }
 }

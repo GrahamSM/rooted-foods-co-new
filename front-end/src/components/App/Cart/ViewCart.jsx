@@ -3,10 +3,65 @@ import styles from './view_cart.scss';
 import {Link} from "react-router";
 import CartItem from './CartItem/CartItem.jsx';
 import CartHead from './CartHead/CartHead.jsx';
+import Reqwest from 'reqwest';
+import Checkout from './Checkout/Checkout.jsx';
 
 export default class ViewCart extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    componentWillMount = () => {
+      this.setState({loading: true})
+      this._getUserProducts()
+      .then((cart_items) => {
+        this.setState({cart_items, loading: false})
+      })
+      .catch((error) => {
+        alert(error.messages);
+        // TODO: Use toaster
+      })
+    }
+
+    _getUserProducts = () => {
+        if (localStorage.access_token){
+          let token = localStorage.access_token
+        return Reqwest({
+            url: "http://localhost:3000/users/get_products",
+            type: 'json',
+            method: 'get',
+            contentType: 'application/json',
+            headers: {
+                'X-ACCESS-TOKEN': token
+            },
+        }).then(response => {
+          return response;
+          // TODO: Use toaster
+        }).catch((error) => {
+            alert(error.message);
+            // TODO: Use toaster
+        })
+      }
+    }
+
+    _setCartComp(){
+      if(this.state.loading){
+        // wait
+      }else{
+        return this.state.cart_items[0].products.map(
+          ({id, name, price, images}) => <CartItem {...{name, price, images}} key={id}/>
+        )
+      }
+    }
+
+    _setCartTotal(){
+      if(this.state.loading){
+        // wait
+      }else{
+        return this.state.cart_items[0].products.map(
+          // MAP THEM INTO CHECKOUT FEATURE
+        )
+      }
     }
 
     render() {
@@ -14,11 +69,12 @@ export default class ViewCart extends React.Component {
         return (
           <div className="cart-page-wrapper">
             <CartHead />
-            <CartItem name={"Tomatoes"} quantity={'3'} price={'2'} total={'6'} />
-            <CartItem name={"Cherries"} quantity={'5'} price={'3'} total={'15'} />
-            <CartItem name={"Name"} quantity={'Quantity'} price={'Price'} total={'Total'} />
-            <CartItem name={"Name"} quantity={'Quantity'} price={'Price'} total={'Total'} />
+            {this._setCartComp()}
+            <Checkout />
           </div>
         );
     }
 }
+
+
+// TODO: ORDER ITEM IN DB FOR QUANTITIES!

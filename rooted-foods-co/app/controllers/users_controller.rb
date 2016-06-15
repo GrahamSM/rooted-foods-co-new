@@ -2,6 +2,16 @@ class UsersController < ApplicationController
 
   skip_before_action :ensure_authenticated_user, :only => [:create]
 
+  def get_products
+    if current_user
+      @order = current_user.orders.where(active: true, completed: false)
+      render json: @order.to_json(:include => [:products])
+
+    else
+      render json: {errors: "You must be logged in!"}, status: 401
+    end
+  end
+
   def new
     @user = User.new
     render nothing: true
