@@ -1,0 +1,16 @@
+.checkout-item-wrapper{
+  margin-top:15px;
+  border-bottom: 1px solid black;
+  height:100px;
+  display:flex;
+  padding-bottom: 110px;
+  justify-content: flex-end;
+}
+.checkout-item-total{
+  width: 20%;
+  height: 100px;
+  flex-shrink: 10%;
+  text-align:center;
+  border-bottom: 1px solid black;
+
+}

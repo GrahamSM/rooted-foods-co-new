@@ -4,6 +4,7 @@ import {Link} from "react-router";
 import CartItem from './CartItem/CartItem.jsx';
 import CartHead from './CartHead/CartHead.jsx';
 import Reqwest from 'reqwest';
+import Checkout from './Checkout/Checkout.jsx';
 
 export default class ViewCart extends React.Component {
     constructor(props) {
@@ -45,9 +46,20 @@ export default class ViewCart extends React.Component {
 
     _setCartComp(){
       if(this.state.loading){
+        // wait
       }else{
         return this.state.cart_items[0].products.map(
-          ({id, name, price}) => <CartItem {...{name, price}} key={id}/>
+          ({id, name, price, images}) => <CartItem {...{name, price, images}} key={id}/>
+        )
+      }
+    }
+
+    _setCartTotal(){
+      if(this.state.loading){
+        // wait
+      }else{
+        return this.state.cart_items[0].products.map(
+          // MAP THEM INTO CHECKOUT FEATURE
         )
       }
     }
@@ -58,6 +70,7 @@ export default class ViewCart extends React.Component {
           <div className="cart-page-wrapper">
             <CartHead />
             {this._setCartComp()}
+            <Checkout />
           </div>
         );
     }

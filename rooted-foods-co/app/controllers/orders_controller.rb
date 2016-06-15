@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     @current_order = current_user.orders.where(active: true, completed: false).first
-    if (@current_order)
+    if (@current_order) #an order is already in the process of being filled
       @products = Bundle.find(params[:id]).products
       @products.each do |product|
         @current_order.products << product
@@ -16,8 +16,9 @@ class OrdersController < ApplicationController
       else
         render json: {errors: @current_order.errors.messages}, status: 422
       end
-    else
+    else #create a new order
       @products = Bundle.find(params[:id]).products
+      binding.pry
       @current_order = Order.create(order_params)
       @current_order.user = current_user
       @current_order.active = true;
