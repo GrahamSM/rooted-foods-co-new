@@ -3,6 +3,9 @@ import styles from './main_page_body.scss';
 import FeaturedProductContainer from './FeaturedProducts/FeaturedProductContainer.jsx'
 import MainBanner from './MainBanner/MainBanner.jsx';
 import Reqwest from 'reqwest';
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 
 
 export default class MainPageBody extends React.Component {
@@ -30,8 +33,10 @@ export default class MainPageBody extends React.Component {
           headers: new Headers()
       }).then(response => {
         return response
+        // TODO: Use toaster
       }).catch((error) => {
           alert(error.message);
+          // TODO: Use toaster
       })
     }
 
@@ -51,7 +56,7 @@ export default class MainPageBody extends React.Component {
         }).then(response => {
           debugger;
         }).catch((error) => {
-          debugger;
+
         })
       }
     }

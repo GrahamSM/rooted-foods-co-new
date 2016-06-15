@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615163050) do
+ActiveRecord::Schema.define(version: 20160615180441) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token"
@@ -56,8 +56,9 @@ ActiveRecord::Schema.define(version: 20160615163050) do
     t.boolean  "active"
     t.integer  "bundle_id"
     t.integer  "transaction_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "completed",      default: false
   end
 
   create_table "product_bundles", force: :cascade do |t|
