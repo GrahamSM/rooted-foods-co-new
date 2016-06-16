@@ -17,7 +17,7 @@ export default class ViewCart extends React.Component {
           <div className="cart-page-wrapper">
             <CartHead />
             {this._setCartComp()}
-            {this._setCartTotal()}>
+            {this._setCartTotal()}
           </div>
         );
     }
