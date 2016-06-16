@@ -42,6 +42,14 @@ export default class ViewCart extends React.Component {
       })
     }
 
+    // _checkout = () => {
+    //   if (localStorage.access_token){
+    //     let token = localStorage.access_token
+    //     let totalCost = this.state.totalCost
+    //     // MAKE PAYMENT WITH STRIPE
+    //   }
+    // }
+
     _getUserProducts = () => {
         if (localStorage.access_token){
           let token = localStorage.access_token
