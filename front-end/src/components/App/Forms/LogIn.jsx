@@ -12,6 +12,25 @@ export default class LogIn extends React.Component {
         this.state = {};
     }
 
+    render() {
+        return (
+            <div className='sign-up-form'>
+                <form id="sign-up" onSubmit={this.handleSubmit.bind(this)}>
+                    <div className="input">
+                        <label htmlFor="username">Username/Email</label>
+                        <input type="text" id="username_or_email" name="username" autoCorrect="off" autoCapitalize="words" maxLength="32"></input>
+                    </div>
+                    <div className="input clearfix">
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" name="password" maxLength="12" autoCorrect="off" autoCapitalize="off"></input>
+                        <span className="toggle-mask">Hide</span>
+                    </div>
+                    <input type="submit" id="submit" name="submit" value="#getrooted"></input>
+                </form>
+            </div>
+        );
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.setState({
@@ -34,24 +53,5 @@ export default class LogIn extends React.Component {
                 }
             })
         })
-    }
-
-    render() {
-        return (
-            <div className='sign-up-form'>
-                <form id="sign-up" onSubmit={this.handleSubmit.bind(this)}>
-                    <div className="input">
-                        <label htmlFor="username">Username/Email</label>
-                        <input type="text" id="username_or_email" name="username" autoCorrect="off" autoCapitalize="words" maxLength="32"></input>
-                    </div>
-                    <div className="input clearfix">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" maxLength="12" autoCorrect="off" autoCapitalize="off"></input>
-                        <span className="toggle-mask">Hide</span>
-                    </div>
-                    <input type="submit" id="submit" name="submit" value="#getrooted"></input>
-                </form>
-            </div>
-        );
     }
 }
