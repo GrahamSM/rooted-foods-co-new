@@ -1,0 +1,16 @@
+.checkout-btn{
+  width: 150px;
+  height:50px;
+  background: white;
+  border: 1px solid #3498db;
+  font-size: 1em;
+  float: right;
+  margin-right:255px;
+  margin-top:10px;
+
+  &:hover{
+    border: 1px solid white;
+    background: #3498db;
+    color: white;
+  }
+}

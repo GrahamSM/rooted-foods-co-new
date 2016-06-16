@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styles from './checkout.scss';
-import {Link} from "react-router";
+import {Link} from 'react-router';
 
 export default class Checkout extends React.Component {
     constructor(props) {

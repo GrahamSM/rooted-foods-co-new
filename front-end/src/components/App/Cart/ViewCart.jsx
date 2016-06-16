@@ -5,6 +5,7 @@ import CartItem from './CartItem/CartItem.jsx';
 import CartHead from './CartHead/CartHead.jsx';
 import Reqwest from 'reqwest';
 import Checkout from './Checkout/Checkout.jsx';
+import CheckoutButton from './Checkout/CheckoutButton/CheckoutButton.jsx';
 
 export default class ViewCart extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ export default class ViewCart extends React.Component {
             <CartHead />
             {this._setCartComp()}
             {this._setCartTotal()}
+            <CheckoutButton />
           </div>
         );
     }
