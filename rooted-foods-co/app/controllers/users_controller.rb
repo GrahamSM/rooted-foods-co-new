@@ -30,7 +30,11 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    user = current_user
+    if (user)
+      user.update!(user_params)
+    end
+    render json: {}, status: 200
   end
 
   def edit
@@ -40,9 +44,6 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :username)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :username, :phone, :shipping_address, :shipping_city, :shipping_province, :shipping_postal_code, :shipping_country, :billing_address, :billing_city, :billing_province, :billing_country, :billing_postal_code)
   end
-
-
-
 end

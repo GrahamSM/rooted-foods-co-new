@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   get 'users/get_products' => 'users#get_products'
 
 
-  resources :users, only: [:new, :create, :update, :edit]
+  resources :users, only: [:new, :create, :update, :edit, :index]
   resources :orders, only: [:new, :create, :update, :edit, :delete]
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :bundles, only: [:index, :show]
   resources :order_items, only: [:index]
   resource :session, only: [:create, :destroy]
+  resources :charges
 
 
 

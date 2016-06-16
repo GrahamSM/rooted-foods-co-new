@@ -13,7 +13,12 @@ class SessionsController < ApplicationController
        @api_key.generate_access_token
      end
      @api_key.save
-     render json: {api_key: @api_key}, status: 201
+     if (user.shipping_address)
+       has_payment_info = true
+     else
+       has_payment_info = false
+     end
+     render json: {api_key: @api_key, has_payment_info: has_payment_info}, status: 201
    else
      render json: { errors: 'Could not authenticate properly.' }, status: 401
    end

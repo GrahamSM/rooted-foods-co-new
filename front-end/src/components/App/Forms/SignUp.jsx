@@ -33,6 +33,7 @@ s
                 data: JSON.stringify(this.state),
                 success: (response) => {
                     localStorage.setItem("access_token", response.api_key.access_token)
+                    localStorage.setItem("has_payment_info", false)
                     this.context.router.push('/');
                 },
                 error: function(response) {
