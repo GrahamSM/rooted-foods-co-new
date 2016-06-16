@@ -4,12 +4,20 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def create
+  #THIS LOGIC IS FOR WHEN A USER ADDS A BUNDLE TO THEIR CART. TODO: Move to a subroute of bundles!
+  def create  #TODO: AND CLEAN IT THE FUCK UP
     @current_order = current_user.orders.where(active: true, completed: false).first
     if (@current_order) #an order is already in the process of being filled
       @products = Bundle.find(params[:id]).products
       @products.each do |product|
-        @current_order.products << product
+        @order_item = OrderItem.where(order_id: @current_order.id, product_id: product.id).first
+        if (@order_item)
+          @order_item.quantity += params[:quantity]
+          @order_item.save
+        else
+          @current_order.products << product
+          OrderItem.where(order_id: @current_order.id, product_id: product.id).first.quantity = params[:quantity]
+        end
       end
       if @current_order.save
         render json: {}, status: 200
