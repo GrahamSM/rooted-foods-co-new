@@ -11,7 +11,7 @@ export default class Checkout extends React.Component {
         return (
           <div className = 'checkout-item-wrapper'>
               <div className = 'checkout-item-total'>
-                Total
+                {this.props.total}
               </div>
           </div>
         );

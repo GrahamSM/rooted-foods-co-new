@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
       end
     else #create a new order
       @products = Bundle.find(params[:id]).products
-      binding.pry
       @current_order = Order.create(order_params)
       @current_order.user = current_user
       @current_order.active = true;
