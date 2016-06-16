@@ -6,12 +6,11 @@ export default class QuantitySelector extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          count: 0
+          count: 1
         }
     }
 
     render() {
-      console.log(this.props);
       return (
         <div className='inc-dec-holder'>
           <div className='content-holder'>

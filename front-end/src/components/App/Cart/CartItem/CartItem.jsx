@@ -11,7 +11,7 @@ export default class CartItem extends React.Component {
         return (
           <div className = 'cart-item-wrapper'>
               <div className = 'cart-item-picture'>
-                <img src={this.props.images} height="100%" width="100%" alt={this.props.title} Cart></img>
+                <img src={this.props.image} height="100%" width="100%" alt={this.props.title} Cart></img>
               </div>
               <div className='cart-item-name'>
                 {this.props.name}
