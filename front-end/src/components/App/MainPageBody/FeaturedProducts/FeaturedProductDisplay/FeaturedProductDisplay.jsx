@@ -13,14 +13,14 @@ export default class FeaturedProductDisplay extends React.Component {
       offset: 14,
       position: 'top right',
       theme: 'light',
-      time: 1000,
+      time: 500,
       transition: 'scale'
     };
   }
 
   showAlert = (string) => {
     msg.show(string, {
-      time: 1000,
+      time: 500,
       type: 'success'
     });
   }
@@ -62,9 +62,9 @@ export default class FeaturedProductDisplay extends React.Component {
         },
         data: JSON.stringify({token: token, id: id, quantity: quantity})
       }).then(response => {
-        {this.showAlert("Item added to cart")}
+        this.showAlert("Item added to cart")
       }).catch((error) => {
-        {this.showAlert(error.message)}
+        this.showAlert(error.message)
       })
     }
   }
@@ -74,7 +74,9 @@ export default class FeaturedProductDisplay extends React.Component {
   }
 
   _decrementValue = () => {
-    this.setState({count: (this.state.count-1)})
+    if (this.state.count > 1){
+      this.setState({count: (this.state.count-1)})
+    }
   }
 
 }

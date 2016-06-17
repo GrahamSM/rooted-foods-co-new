@@ -12,7 +12,7 @@ export default class MainBannerAxn extends React.Component{
       <div className="main-banner-call">
         <h2>Farm <span id="fresh">fresh</span> groceries</h2>
         <p>Delivered right to your door</p>
-        <button className="main-action-btn">Shop Now</button>
+        <button className="main-action-btn" onClick={this.props.getAllProducts}>Shop Now</button>
       </div>
     );
   }
