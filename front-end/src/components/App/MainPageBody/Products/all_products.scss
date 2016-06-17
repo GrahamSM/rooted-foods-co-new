@@ -62,6 +62,11 @@
   width: 30px;
   margin-left: 5px;
   background: white;
+  &:hover{
+    cursor: pointer;
+    color: #1abc9c;
+    transition-duration: 0.5s;
+  }
 }
 
 .product-amount{

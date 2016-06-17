@@ -6,7 +6,7 @@ import IndividualProduct from './IndividualProduct.jsx'
 export default class AllProducts extends React.Component {
     constructor() {
       super();
-      this.state = {loading: true}
+      this.state = {loading: true, count: 0}
     }
 
     componentWillMount = () =>{
@@ -27,7 +27,7 @@ export default class AllProducts extends React.Component {
     displayAllProducts = () =>{
       let all_products = []
       for (var i = 0; i<this.state.products.length; i++){
-        all_products.push(<IndividualProduct title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price}/>)
+        all_products.push(<IndividualProduct title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count}/>)
       }
       return all_products
     }
