@@ -15,7 +15,6 @@ export default class ViewCart extends React.Component {
     }
 
     render() {
-      // TODO: Method to return all items in users cart, and map those items to a CartItem component
         return (
           <div className="cart-page-wrapper">
             {!this.state.checkout && this._renderCartHead()}

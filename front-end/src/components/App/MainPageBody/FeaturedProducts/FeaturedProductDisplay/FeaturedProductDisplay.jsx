@@ -2,18 +2,34 @@ import React, {Component} from 'react';
 import styles from './featured_product_display.scss';
 import QuantitySelector from './QuantitySelector/QuantitySelector.jsx';
 import Reqwest from 'reqwest';
+import AlertContainer from 'react-alert';
 
 
 export default class FeaturedProductDisplay extends React.Component {
   constructor(props) {
-      super(props);
-      this.state = {count: 1}
+    super(props);
+    this.state = {count: 1};
+    this.alertOptions = {
+      offset: 14,
+      position: 'top right',
+      theme: 'light',
+      time: 1000,
+      transition: 'scale'
+    };
+  }
+
+  showAlert = (string) => {
+    msg.show(string, {
+      time: 1000,
+      type: 'success'
+    });
   }
 
 
   render() {
     return (
       <div className='featured_product'>
+      <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
         <div className='product-image'>
           <img src={this.props.image} alt="Smiley face" height="100%" width="100%"></img>
         </div>
@@ -46,9 +62,9 @@ export default class FeaturedProductDisplay extends React.Component {
         },
         data: JSON.stringify({token: token, id: id, quantity: quantity})
       }).then(response => {
-        // TODO: USE TOASTER!
+        {this.showAlert("Item added to cart")}
       }).catch((error) => {
-
+        {this.showAlert(error.message)}
       })
     }
   }

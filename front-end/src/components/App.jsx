@@ -14,7 +14,6 @@ export default class Layout extends React.Component{
   }
 
   _getUserProducts = () => {
-      //TODO: Make reqwest, return JSON with products
       if (localStorage.access_token){
         let token = localStorage.access_token
       return Reqwest({

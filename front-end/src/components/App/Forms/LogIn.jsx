@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import style from './log_in_form.css'
+import style from './log_in_form.css';
 var Reqwest = require('reqwest');
 
 export default class LogIn extends React.Component {
@@ -10,23 +10,30 @@ export default class LogIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.alertOptions = {
+          offset: 14,
+          position: 'top right',
+          theme: 'light',
+          time: 1000,
+          transition: 'scale'
+        };
     }
 
     render() {
         return (
             <div className='sign-up-form'>
-                <form id="sign-up" onSubmit={this.handleSubmit.bind(this)}>
-                    <div className="input">
-                        <label htmlFor="username">Username/Email</label>
-                        <input type="text" id="username_or_email" name="username" autoCorrect="off" autoCapitalize="words" maxLength="32"></input>
-                    </div>
-                    <div className="input clearfix">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" maxLength="12" autoCorrect="off" autoCapitalize="off"></input>
-                        <span className="toggle-mask">Hide</span>
-                    </div>
-                    <input type="submit" id="submit" name="submit" value="#getrooted"></input>
-                </form>
+              <form id="sign-up" onSubmit={this.handleSubmit.bind(this)}>
+                <div className="input">
+                  <label htmlFor="username">Username/Email</label>
+                  <input type="text" id="username_or_email" name="username" autoCorrect="off" autoCapitalize="words" maxLength="32"></input>
+                </div>
+                <div className="input clearfix">
+                  <label htmlFor="password">Password</label>
+                  <input type="password" id="password" name="password" maxLength="12" autoCorrect="off" autoCapitalize="off"></input>
+                  <span className="toggle-mask">Hide</span>
+                </div>
+                <input type="submit" id="submit" name="submit" value="#getrooted"></input>
+              </form>
             </div>
         );
     }
@@ -50,7 +57,6 @@ export default class LogIn extends React.Component {
                     this.context.router.push('/');
                 },
                 error: function(response) {
-                    ///Informative message, stay on the same page
                 }
             })
         })
