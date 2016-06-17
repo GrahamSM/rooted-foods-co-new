@@ -35,8 +35,12 @@
   },
   "dependencies": {
     "history": "^1.17.0",
+    "materialize-css": "^0.97.6",
     "precss": "^1.4.0",
+    "react-bootstrap": "^0.29.4",
+    "react-materialize": "^0.14.4",
     "react-router": "^2.4.1",
+    "react-stripe-checkout": "^1.8.0",
     "react-toastr": "^2.7.0",
     "rucksack-css": "^0.8.6"
   }

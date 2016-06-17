@@ -24,8 +24,8 @@ export default class Checkout extends React.Component {
                 <div className='value'>10</div>
               </div>
               <div className='item total'>
-                <label>Subtotal</label>
-                <div className='value'>10</div>
+                <label>Total</label>
+                <div className='value'>{this.props.total}</div>
               </div>
             </div>
           </div>

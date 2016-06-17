@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styles from './checkout_button.scss';
+import ProcessPayment from './ProcessPayment/ProcessPayment.jsx';
 
 export default class CheckoutButton extends React.Component {
 
@@ -13,12 +14,10 @@ export default class CheckoutButton extends React.Component {
 
     render() {
       return(
-        <button className='checkout-btn' onClick={this._directToCheckout}>Checkout</button>
+        <div>
+          <button className='checkout-btn' onClick={this.props.toCheckout}>Checkout</button>
+        </div>
       )
     }
 
-    _directToCheckout = () => {
-      const {router} = this.context
-      router.push('/checkout')
-    }
 }

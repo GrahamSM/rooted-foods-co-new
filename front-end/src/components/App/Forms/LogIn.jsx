@@ -46,6 +46,7 @@ export default class LogIn extends React.Component {
                 data: JSON.stringify(this.state),
                 success: (response) => {
                     localStorage.setItem("access_token", response.api_key.access_token)
+                    localStorage.setItem("has_payment_info", response.has_payment_info)
                     this.context.router.push('/');
                 },
                 error: function(response) {
