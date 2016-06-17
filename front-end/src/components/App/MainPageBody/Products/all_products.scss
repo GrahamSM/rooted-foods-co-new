@@ -48,10 +48,24 @@
 }
 .floater {
   width:20%;
-  height:50px;
-  background:#1abc9c;
+  height:100px;
   position: absolute;
   left:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.amount-adjuster{
+  border: 1px solid white;
+  height: 30px;
+  width: 30px;
+  margin-left: 5px;
+  background: white;
+}
+
+.product-amount{
+  margin-left: 5px;
 }
 
 @media screen and (min-width: 1200px) {

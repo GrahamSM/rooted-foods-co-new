@@ -66,6 +66,8 @@ export default class FeaturedProductDisplay extends React.Component {
       }).catch((error) => {
         this.showAlert(error.message)
       })
+    }else{
+      this.showAlert("You must be logged in!")
     }
   }
 
