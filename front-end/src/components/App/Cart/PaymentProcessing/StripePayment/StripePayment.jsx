@@ -51,13 +51,18 @@ export default class StripePayment extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="payment-btn-page">
         <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
         <StripeCheckout
           token={this.onToken}
           amount={this.props.totalCost*100}
           currency='CAD'
-          stripeKey="pk_test_hbgI9kGpqL4FI8sfXHqQkhd6" />
+          componentClass="stripe-payment"
+          stripeKey="pk_test_hbgI9kGpqL4FI8sfXHqQkhd6">
+          <button className="stripe-payment">
+            Proceed to Payment
+          </button>
+          </StripeCheckout>
       </div>
     )
   }

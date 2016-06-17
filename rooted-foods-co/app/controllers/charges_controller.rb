@@ -15,8 +15,9 @@ class ChargesController < ApplicationController
       customer: customer.id,
       amount: @amount,
       description: 'Rails Stripe customer',
-      currency: 'cad'
+      currency: 'CAD'
     )
+    current_user.update_order_status_to_complete
     render json: {}, status: 200
 
   rescue Stripe::CardError => e
