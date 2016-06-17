@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :bundles, only: [:index, :show]
-  resources :order_items, only: [:index]
+  resources :order_items, only: [:index, :destroy]
   resource :session, only: [:create, :destroy]
   resources :charges
 

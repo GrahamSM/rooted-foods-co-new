@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './header_btn.css';
+import styles from './header_btn.scss';
 import {Link} from "react-router";
 import Reqwest from 'reqwest';
 

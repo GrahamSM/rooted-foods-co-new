@@ -13,15 +13,11 @@ export default class Checkout extends React.Component {
             <div className='checkout-box'>
               <div className='item subtotal'>
                 <label>Subtotal</label>
-                <div className='value'>10</div>
-              </div>
-              <div className='item tax'>
-                <label>Subtotal</label>
-                <div className='value'>10</div>
+                <div className='value'>{this.props.subtotal}</div>
               </div>
               <div className='item discount'>
-                <label>Subtotal</label>
-                <div className='value'>10</div>
+                <label>Tax</label>
+                <div className='value'>15%</div>
               </div>
               <div className='item total'>
                 <label>Total</label>
