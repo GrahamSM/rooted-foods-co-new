@@ -1,0 +1,21 @@
+.stripe-payment{
+  margin-top:50px;
+  border: 1px solid white;
+  width: 200px;
+  height: 75px;
+  background-color: black;
+  color: white;
+  font-size: 1em;
+
+  &:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+}
+
+.payment-btn-page{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}

@@ -7,7 +7,7 @@ var Reqwest = require('reqwest');
 export default class ProcessPayment extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {paymentInfoSubmitted: false}
+        this.state = {paymentInfoSubmitted: localStorage.has_payment_info}
     }
     _renderPaymentForm(){
       return(
