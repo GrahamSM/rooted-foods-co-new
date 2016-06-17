@@ -11,7 +11,7 @@ export default class ProcessPayment extends React.Component {
     }
     _renderPaymentForm(){
       return(
-        <StripePayment />
+        <StripePayment totalCost={this.props.totalCost}/>
       )
     }
 

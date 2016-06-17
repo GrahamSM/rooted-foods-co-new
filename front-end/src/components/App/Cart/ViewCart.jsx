@@ -6,20 +6,23 @@ import CartHead from './CartHead/CartHead.jsx';
 import Reqwest from 'reqwest';
 import Checkout from './Checkout/Checkout.jsx';
 import CheckoutButton from './Checkout/CheckoutButton/CheckoutButton.jsx';
+import ProcessPayment from './Checkout/CheckoutButton/ProcessPayment/ProcessPayment.jsx'
 
 export default class ViewCart extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {checkout: false}
     }
 
     render() {
       // TODO: Method to return all items in users cart, and map those items to a CartItem component
         return (
           <div className="cart-page-wrapper">
-            <CartHead />
-            {this._setCartComp()}
-            {this._setCartTotal()}
-            <CheckoutButton />
+            {!this.state.checkout && this._renderCheckout()}
+            {!this.state.checkout && this._setCartComp()}
+            {!this.state.checkout && this._setCartTotal()}
+            {!this.state.checkout && this._renderCheckoutButton()}
+            {this.state.checkout && <ProcessPayment totalCost={this.state.totalCost}/>}
           </div>
         );
     }
@@ -40,6 +43,18 @@ export default class ViewCart extends React.Component {
         alert(error.messages);
         // TODO: Use toaster
       })
+    }
+
+    _renderCheckout = () =>{
+      return <CartHead />
+    }
+
+    _renderCheckoutButton = () =>{
+      return <CheckoutButton toCheckout={this._toCheckout} />
+    }
+
+    _toCheckout = () =>{
+      this.setState({checkout: true})
     }
 
     // _checkout = () => {

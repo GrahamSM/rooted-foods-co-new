@@ -23,7 +23,6 @@ export default class CartItem extends React.Component {
               {this.props.price}
               </div>
               <div className = 'cart-item-total'>
-                {this.props.total}
               </div>
           </div>
         );
