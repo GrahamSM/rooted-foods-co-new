@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styles from './cart_item.scss';
 import {Link} from "react-router";
+var Reqwest = require('reqwest');
 
 export default class CartItem extends React.Component {
     constructor(props) {
@@ -22,9 +23,30 @@ export default class CartItem extends React.Component {
               <div className = "cart-item-price">
               {this.props.price}
               </div>
-              <div className = 'cart-item-total'>
+              <div className = 'cart-item-remove'>
+                <button className='delete-item' onClick={this._removeCartItem}>
+                  <i className="fa fa-times" aria-hidden="true"></i>
+                </button>
               </div>
           </div>
         );
+    }
+
+    _removeCartItem = () =>{
+      let token = localStorage.access_token
+      Reqwest({
+          url: "http://localhost:3000/order_items/" + this.props.product_id,
+          type: 'json',
+          method: 'delete',
+          contentType: 'application/json',
+          headers: {
+              'X-ACCESS-TOKEN': token
+          },
+      }).then(response => {
+        // TODO: Use toaster
+      }).catch((error) => {
+          alert(error.message);
+          // TODO: Use toaster
+      })
     }
 }

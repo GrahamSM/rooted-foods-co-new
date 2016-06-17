@@ -28,9 +28,25 @@
   text-align: center;
 }
 
-.cart-item-total{
+.cart-item-remove{
   width: 20%;
   height: 100px;
   flex-shrink: 10%;
   text-align:center;
+}
+
+.delete-item{
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+  border: 1px solid #e74c3c;
+  background-color:white;
+  color: #e74c3c;
+
+  &:hover{
+    border: 1px solid white;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+  }
 }

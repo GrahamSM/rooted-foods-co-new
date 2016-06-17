@@ -1,12 +1,12 @@
 .main-banner-image{
-  background-image: url('http://doughartisanpizzeria.com/wp-content/uploads/2015/09/cropped-will_dunbar_photography_food_restaurant_new_jersey_nj_55.jpg');
   background-size:100%;
   width: 100%;
-  height: 500px;
+  height: 400px;
   /*margin-top:20px;*/
-  padding-top: 80px;
-  padding-left: 30%;
+  padding-top: 125px;
+  padding-left: 20%;
   color:black;
   font-family: Raleway;
-  border-radius: 5px;
+  border-radius: 2px;
+  background-color: #1abc9c;
 }

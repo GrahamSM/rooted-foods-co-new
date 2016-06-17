@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './header.css';
+import styles from './header.scss';
 import MainTitle from './MainTitle.jsx';
 import HeaderMenu from './HeaderMenu.jsx';
 import Reqwest from 'reqwest';

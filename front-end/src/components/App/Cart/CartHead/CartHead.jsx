@@ -18,7 +18,6 @@ const CartHead = () => {
           <em>Unit Price</em>
         </div>
         <div className = 'cart-head-total'>
-          <em>Total</em>
         </div>
     </div>
   );
