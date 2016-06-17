@@ -14,7 +14,7 @@ import SignUpForm from './components/App/Forms/SignUp.jsx';
 import LogInForm from './components/App/Forms/LogIn.jsx';
 import MainBody from './components/App/MainPageBody/MainPageBody.jsx';
 import ViewCart from './components/App/Cart/ViewCart.jsx';
-import ProcessPayment from './components/App/Cart/Checkout/CheckoutButton/ProcessPayment/ProcessPayment.jsx';
+import PaymentProcessing from './components/App/Cart/PaymentProcessing/PaymentProcessing.jsx';
 
 
 
@@ -25,6 +25,6 @@ ReactDOM.render(
       <Route path = "/signup" component = { SignUpForm } ></Route>
       <Route path = "/login" component = { LogInForm } ></Route>
       <Route path = "/view-cart" component = {ViewCart} ></Route>
-      <Route path = "/checkout" component = {ProcessPayment}></Route>
+      <Route path = "/checkout" component = {PaymentProcessing}></Route>
     </Route>
   </Router>, document.getElementById('app'));

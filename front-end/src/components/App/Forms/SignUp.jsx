@@ -1,15 +1,31 @@
 import React, {Component} from 'react';
 import style from './sign_up_form.css'
 import Reqwest from 'reqwest';
+import AlertContainer from 'react-alert';
 
 export default class SignUpForm extends React.Component {
     static contextTypes = {
         router: React.PropTypes.object.isRequired
     }
-s
+
+
     constructor(props) {
         super(props);
         this.state = {};
+        this.alertOptions = {
+          offset: 14,
+          position: 'top right',
+          theme: 'light',
+          time: 1000,
+          transition: 'scale'
+        };
+    }
+
+    showAlert = (string) => {
+      msg.show(string, {
+        time: 1000,
+        type: 'success'
+      });
     }
 
     handleSubmit(e) {
@@ -35,9 +51,10 @@ s
                     localStorage.setItem("access_token", response.api_key.access_token)
                     localStorage.setItem("has_payment_info", false)
                     this.context.router.push('/');
+                    {this.showAlert("Sign Up Successful")}
                 },
                 error: function(response) {
-                    ///Informative message, stay on the same page
+                  {this.showAlert(response.message)}
                 }
             })
         })
@@ -46,6 +63,7 @@ s
     render() {
         return (
             <div className='sign-up-form'>
+                <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
                 <form id="sign-up" onSubmit={this.handleSubmit.bind(this)}>
                     <div className="input">
                         <label htmlFor="first_name">First Name</label>

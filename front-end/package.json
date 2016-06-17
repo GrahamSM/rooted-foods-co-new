@@ -37,6 +37,8 @@
     "history": "^1.17.0",
     "materialize-css": "^0.97.6",
     "precss": "^1.4.0",
+    "react-addons-css-transition-group": "^15.1.0",
+    "react-alert": "^1.0.14",
     "react-bootstrap": "^0.29.4",
     "react-materialize": "^0.14.4",
     "react-router": "^2.4.1",
