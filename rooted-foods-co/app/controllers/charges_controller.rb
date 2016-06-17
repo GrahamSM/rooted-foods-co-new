@@ -4,8 +4,10 @@ class ChargesController < ApplicationController
   end
 
   def create
+    stripeEmail = current_user.email
+    @amount = (params[:amount]*100).to_i
     customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
+      email: stripeEmail,
       source: params[:stripeToken]
     )
 
@@ -15,6 +17,7 @@ class ChargesController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'cad'
     )
+    render json: {}, status: 200
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
