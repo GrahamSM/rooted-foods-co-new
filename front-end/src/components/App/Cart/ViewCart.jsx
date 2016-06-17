@@ -27,21 +27,7 @@ export default class ViewCart extends React.Component {
     }
 
     componentWillMount = () => {
-      this.setState({loading: true})
-      this._getUserProducts()
-      .then((cart_items) => {
-        this.setState({cart_items, loading: false})
-        let totalCost = 0;
-        for (var i = 0; i < cart_items.length; i++){
-          totalCost += cart_items[i].quantity*cart_items[i].product.price
-        }
-        this.setState({totalCost})
-
-      })
-      .catch((error) => {
-        alert(error.messages);
-        // TODO: Use toaster
-      })
+      this._updateCart()
     }
 
     _renderCartHead = () =>{
@@ -83,13 +69,31 @@ export default class ViewCart extends React.Component {
         if (this.state.cart_items.length){
           for (var i = 0; i < this.state.cart_items.length; i++){
             let quantity = this.state.cart_items[i].quantity
-            items.push(<CartItem quantity={quantity} product_id={this.state.cart_items[i].product_id} name={this.state.cart_items[i].product.name} price={this.state.cart_items[i].product.price} image={this.state.cart_items[i].product.images} key={this.state.cart_items[i].id} />)
+            items.push(<CartItem quantity={quantity} product_id={this.state.cart_items[i].product_id} name={this.state.cart_items[i].product.name} price={this.state.cart_items[i].product.price} image={this.state.cart_items[i].product.images} updateCart={this._updateCart} key={this.state.cart_items[i].id} />)
           }
           return items;
         }else{
           return null
         }
       }
+    }
+
+    _updateCart = () =>{
+      this.setState({loading: true})
+      this._getUserProducts()
+      .then((cart_items) => {
+        this.setState({cart_items, loading: false})
+        let totalCost = 0;
+        for (var i = 0; i < cart_items.length; i++){
+          totalCost += cart_items[i].quantity*cart_items[i].product.price
+        }
+        this.setState({totalCost})
+
+      })
+      .catch((error) => {
+        alert(error.messages);
+        // TODO: Use toaster
+      })
     }
 
 

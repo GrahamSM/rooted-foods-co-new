@@ -43,10 +43,10 @@ export default class CartItem extends React.Component {
               'X-ACCESS-TOKEN': token
           },
       }).then(response => {
-        // TODO: Use toaster
+        this.props.updateCart()
       }).catch((error) => {
           alert(error.message);
-          // TODO: Use toaster
+
       })
     }
 }

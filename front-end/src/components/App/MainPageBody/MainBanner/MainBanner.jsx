@@ -3,13 +3,13 @@ import styles from './main_banner.css';
 import MainBannerImage from './MainBannerImage.jsx';
 
 export default class Header extends React.Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
   }
   render(){
     return(
       <div className = 'main_banner'>
-        <MainBannerImage />
+        <MainBannerImage getAllProducts={this.props.getAllProducts} />
       </div>
     );
   }

@@ -9,6 +9,9 @@ var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation
 
 
 export default class MainPageBody extends React.Component {
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    };
     constructor() {
       super();
     }
@@ -16,15 +19,14 @@ export default class MainPageBody extends React.Component {
     render() {
       return (
         <div className='main-page-body'>
-          <MainBanner/>
-          <div className='featured-product-header'>Featured Products</div>
+          <MainBanner getAllProducts={this._getAllProducts}/>
+          <div className='featured-product-header'>Featured Bundles</div>
           <FeaturedProductContainer getTopProducts={this._getTopProducts} />
         </div>
       );
     }
 
     _getTopProducts = () => {
-      //TODO: Make reqwest, return JSON with products
       return Reqwest({
           url: "http://localhost:3000/bundles/top_four",
           type: 'json',
@@ -38,5 +40,10 @@ export default class MainPageBody extends React.Component {
           alert(error.message);
           // TODO: Use toaster
       })
+    }
+
+    _getAllProducts = () => {
+      const {router} = this.context
+      router.push('products')
     }
 }

@@ -1,25 +1,27 @@
-class Product < ApplicationController
+class ProductsController < ApplicationController
 
-    def index
-    end
+  skip_before_filter :ensure_authenticated_user
 
-    def show
-    end
+  def index
+    products = Product.all
+    render json: products, status: 200
+  end
 
-    def new
-      @product = Product.new
-    end
+  def show
+  end
 
-    def create
-      @product = Product.new(product_params)
-    end
+  def new
+    @product = Product.new
+  end
 
-    protected
+  def create
+    @product = Product.new(product_params)
+  end
 
-    def product_params
-      params.require(:product).permit(:name, :description, :distributor, :SKU, :price)
-    end
+  protected
 
+  def product_params
+    params.require(:product).permit(:name, :description, :distributor, :SKU, :price)
   end
 
 end

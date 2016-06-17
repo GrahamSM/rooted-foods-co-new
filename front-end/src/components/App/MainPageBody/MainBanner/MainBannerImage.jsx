@@ -13,7 +13,7 @@ export default class MainBannerImage extends React.Component{
   render(){
     return(
       <div className = "main-banner-image">
-        <MainBannerAxn />
+        <MainBannerAxn getAllProducts={this.props.getAllProducts}/>
       </div>
     );
   }
