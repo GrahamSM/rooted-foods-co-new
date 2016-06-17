@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './process_payment.scss';
+import styles from './payment_processing.scss';
 import StripePayment from './StripePayment/StripePayment.jsx';
 import AddressInfoForm from './AddressInfoForm/AddressInfoForm.jsx';
 var Reqwest = require('reqwest');

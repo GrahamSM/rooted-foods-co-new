@@ -6,7 +6,7 @@ import CartHead from './CartHead/CartHead.jsx';
 import Reqwest from 'reqwest';
 import Checkout from './Checkout/Checkout.jsx';
 import CheckoutButton from './Checkout/CheckoutButton/CheckoutButton.jsx';
-import ProcessPayment from './Checkout/CheckoutButton/ProcessPayment/ProcessPayment.jsx'
+import PaymentProcessing from './PaymentProcessing/PaymentProcessing.jsx'
 
 export default class ViewCart extends React.Component {
     constructor(props) {
@@ -18,11 +18,11 @@ export default class ViewCart extends React.Component {
       // TODO: Method to return all items in users cart, and map those items to a CartItem component
         return (
           <div className="cart-page-wrapper">
-            {!this.state.checkout && this._renderCheckout()}
+            {!this.state.checkout && this._renderCartHead()}
             {!this.state.checkout && this._setCartComp()}
             {!this.state.checkout && this._setCartTotal()}
             {!this.state.checkout && this._renderCheckoutButton()}
-            {this.state.checkout && <ProcessPayment totalCost={this.state.totalCost}/>}
+            {this.state.checkout && <PaymentProcessing totalCost={this.state.totalCost}/>}
           </div>
         );
     }
@@ -45,7 +45,7 @@ export default class ViewCart extends React.Component {
       })
     }
 
-    _renderCheckout = () =>{
+    _renderCartHead = () =>{
       return <CartHead />
     }
 
@@ -56,14 +56,6 @@ export default class ViewCart extends React.Component {
     _toCheckout = () =>{
       this.setState({checkout: true})
     }
-
-    // _checkout = () => {
-    //   if (localStorage.access_token){
-    //     let token = localStorage.access_token
-    //     let totalCost = this.state.totalCost
-    //     // MAKE PAYMENT WITH STRIPE
-    //   }
-    // }
 
     _getUserProducts = () => {
         if (localStorage.access_token){
@@ -86,11 +78,8 @@ export default class ViewCart extends React.Component {
       }
     }
 
-    // TODO: CLEAN THIS UP
     _setCartComp(){
-      if(this.state.loading){
-        // wait
-      }else{
+      if (!this.state.loading){
         let items = []
         for (var i = 0; i < this.state.cart_items.length; i++){
           let quantity = this.state.cart_items[i].quantity
@@ -101,8 +90,7 @@ export default class ViewCart extends React.Component {
     }
 
     _setCartTotal(){
-      if(this.state.loading){
-      }else{
+      if (!this.state.loading){
         return <Checkout total={this.state.totalCost} />
       }
     }
