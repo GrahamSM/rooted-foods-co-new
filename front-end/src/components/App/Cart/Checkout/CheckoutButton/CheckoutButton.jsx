@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import styles from './checkout_button.scss';
-import ProcessPayment from './ProcessPayment/ProcessPayment.jsx';
 
 export default class CheckoutButton extends React.Component {
 
