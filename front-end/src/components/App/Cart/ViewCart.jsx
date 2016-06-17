@@ -80,11 +80,15 @@ export default class ViewCart extends React.Component {
     _setCartComp(){
       if (!this.state.loading){
         let items = []
-        for (var i = 0; i < this.state.cart_items.length; i++){
-          let quantity = this.state.cart_items[i].quantity
-          items.push(<CartItem quantity={quantity} name={this.state.cart_items[i].product.name} price={this.state.cart_items[i].product.price} image={this.state.cart_items[i].product.images} key={this.state.cart_items[i].id} />)
+        if (this.state.cart_items.length){
+          for (var i = 0; i < this.state.cart_items.length; i++){
+            let quantity = this.state.cart_items[i].quantity
+            items.push(<CartItem quantity={quantity} name={this.state.cart_items[i].product.name} price={this.state.cart_items[i].product.price} image={this.state.cart_items[i].product.images} key={this.state.cart_items[i].id} />)
+          }
+          return items;
+        }else{
+          return null
         }
-        return items;
       }
     }
 
