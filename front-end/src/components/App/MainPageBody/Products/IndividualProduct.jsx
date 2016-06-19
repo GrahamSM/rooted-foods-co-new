@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styles from './individual_product.scss';
 import ProductQuantitySelector from './ProductQuantitySelector/ProductQuantitySelector.jsx';
+import Reqwest from 'reqwest';
 
 export default class IndividualProduct extends React.Component {
     constructor() {
@@ -17,6 +18,7 @@ export default class IndividualProduct extends React.Component {
               <ProductQuantitySelector count={this.state.count} increment={this._increment} decrement={this._decrement}/>
               <h2>{this.props.title}</h2>
             </header>
+            <button onClick={ () => { this._addToCart(this.props.product_id, this.state.count)}}>Add to Cart</button>
             <figcaption>
               {this.props.description}
             </figcaption>
@@ -36,6 +38,7 @@ export default class IndividualProduct extends React.Component {
     }
 
     _addToCart = (id, quantity) => {
+      debugger;
       let url = 'http://localhost:3000/orders'
       if (localStorage.access_token){
         let token = localStorage.access_token;
