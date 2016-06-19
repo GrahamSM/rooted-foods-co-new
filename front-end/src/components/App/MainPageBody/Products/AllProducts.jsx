@@ -27,7 +27,7 @@ export default class AllProducts extends React.Component {
     displayAllProducts = () =>{
       let all_products = []
       for (var i = 0; i<this.state.products.length; i++){
-        all_products.push(<IndividualProduct title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count}/>)
+        all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count}/>)
       }
       return all_products
     }

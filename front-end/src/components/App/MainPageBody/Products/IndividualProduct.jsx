@@ -1,26 +1,20 @@
 import React, {Component} from 'react';
 import styles from './individual_product.scss';
+import ProductQuantitySelector from './ProductQuantitySelector/ProductQuantitySelector.jsx';
 
 export default class IndividualProduct extends React.Component {
     constructor() {
       super();
-      this.state = {count: 0}
+      this.state = {count: 1}
     }
+
     render() {
       return (
         <article className="list--item">
           <figure>
             <img src={this.props.image} alt=""></img>
             <header>
-            <div className="floater">
-              <button className='amount-adjuster' onClick={this._increment}>
-                <i className="fa fa-plus" aria-hidden="true"></i>
-              </button>
-              <label className="product-amount">{this.props.count}</label>
-              <button className='amount-adjuster' onClick={this._decrement}>
-                <i className="fa fa-minus" aria-hidden="true"></i>
-              </button>
-            </div>
+              <ProductQuantitySelector count={this.state.count} increment={this._increment} decrement={this._decrement}/>
               <h2>{this.props.title}</h2>
             </header>
             <figcaption>
@@ -32,7 +26,6 @@ export default class IndividualProduct extends React.Component {
     }
 
     _increment = () =>{
-      debugger;
       this.setState({count: this.state.count+1})
     }
 
