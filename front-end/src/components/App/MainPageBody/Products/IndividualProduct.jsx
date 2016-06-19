@@ -24,18 +24,18 @@ export default class IndividualProduct extends React.Component {
         type: 'success'
       });
     }
-    
+
     render() {
       return (
         <article className="list--item">
           <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
           <figure>
             <img src={this.props.image} alt=""></img>
+            <button className='add-to-cart-btn' onClick={ () => { this._addToCart(this.props.product_id, this.state.count)}}>Add to Cart</button>
             <header>
               <ProductQuantitySelector count={this.state.count} increment={this._increment} decrement={this._decrement}/>
               <h2>{this.props.title}</h2>
             </header>
-            <button onClick={ () => { this._addToCart(this.props.product_id, this.state.count)}}>Add to Cart</button>
             <figcaption>
               {this.props.description}
             </figcaption>

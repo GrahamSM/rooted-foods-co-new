@@ -1,0 +1,9 @@
+.add-to-cart-btn{
+  border: 1px solid white;
+  background: #1abc9c;
+  color: white;
+  &:hover{
+    background: #16a085;
+    cursor: pointer;
+  }
+}
