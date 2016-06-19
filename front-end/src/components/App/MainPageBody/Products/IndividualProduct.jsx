@@ -2,16 +2,33 @@ import React, {Component} from 'react';
 import styles from './individual_product.scss';
 import ProductQuantitySelector from './ProductQuantitySelector/ProductQuantitySelector.jsx';
 import Reqwest from 'reqwest';
+import AlertContainer from 'react-alert';
+
 
 export default class IndividualProduct extends React.Component {
     constructor() {
       super();
       this.state = {count: 1}
+      this.alertOptions = {
+        offset: 14,
+        position: 'top right',
+        theme: 'light',
+        time: 500,
+        transition: 'scale'
+      };
     }
 
+    showAlert = (string) => {
+      msg.show(string, {
+        time: 500,
+        type: 'success'
+      });
+    }
+    
     render() {
       return (
         <article className="list--item">
+          <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
           <figure>
             <img src={this.props.image} alt=""></img>
             <header>
@@ -38,7 +55,6 @@ export default class IndividualProduct extends React.Component {
     }
 
     _addToCart = (id, quantity) => {
-      debugger;
       let url = 'http://localhost:3000/orders'
       if (localStorage.access_token){
         let token = localStorage.access_token;
@@ -50,7 +66,7 @@ export default class IndividualProduct extends React.Component {
           headers: {
               'X-ACCESS-TOKEN': token
           },
-          data: JSON.stringify({token: token, id: id, quantity: quantity})
+          data: JSON.stringify({token: token, id: id, quantity: quantity, is_bundle: false})
         }).then(response => {
           this.showAlert("Item added to cart")
         }).catch((error) => {

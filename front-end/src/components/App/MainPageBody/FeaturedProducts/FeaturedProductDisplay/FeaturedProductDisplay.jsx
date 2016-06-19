@@ -60,7 +60,7 @@ export default class FeaturedProductDisplay extends React.Component {
         headers: {
             'X-ACCESS-TOKEN': token
         },
-        data: JSON.stringify({token: token, id: id, quantity: quantity})
+        data: JSON.stringify({token: token, id: id, quantity: quantity, is_bundle: true})
       }).then(response => {
         this.showAlert("Item added to cart")
       }).catch((error) => {
