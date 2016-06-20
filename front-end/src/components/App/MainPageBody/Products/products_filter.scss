@@ -1,0 +1,51 @@
+.products-filter{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-filter{
+  width: 10%;
+  color: white;
+  font-size: 1.25vw;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.meat{
+  background: #e74c3c;
+  border: 1px solid #c0392b;
+  &:hover{
+    cursor: pointer;
+    background: #c0392b;
+  }
+}
+
+.produce{
+  background: #2ecc71;
+  border: 1px solid #27ae60;
+  &:hover{
+    cursor: pointer;
+    background: #27ae60;
+  }
+}
+
+.dairy{
+  background: #3498db;
+  border: 1px solid #2980b9;
+  &:hover{
+    cursor: pointer;
+    background: #2980b9;
+  }
+}
+
+.grains{
+  background: #EB9532;
+  border: 1px solid #E87E04;
+  &:hover{
+    cursor: pointer;
+    background: #E87E04;
+  }
+}

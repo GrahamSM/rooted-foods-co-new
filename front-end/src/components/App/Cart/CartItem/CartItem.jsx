@@ -45,8 +45,7 @@ export default class CartItem extends React.Component {
       }).then(response => {
         this.props.updateCart()
       }).catch((error) => {
-          alert(error.message);
-
+          alert(error.messages);
       })
     }
 }

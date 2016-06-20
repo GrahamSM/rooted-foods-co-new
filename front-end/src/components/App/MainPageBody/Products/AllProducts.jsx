@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import styles from './all_products.scss';
 import Reqwest from 'reqwest';
 import IndividualProduct from './IndividualProduct.jsx'
+import ProductsFilter from './ProductsFilter.jsx'
+
 
 export default class AllProducts extends React.Component {
     constructor() {
@@ -35,6 +37,7 @@ export default class AllProducts extends React.Component {
     render() {
       return (
         <div className="products-container">
+          <ProductsFilter />
           <div className="list">
             {!this.state.loading && this.displayAllProducts()}
           </div>

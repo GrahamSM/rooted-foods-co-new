@@ -17,12 +17,12 @@
 }
 
 .main-action-btn:hover{
-  border: 1px solid black;
+  border: 1px solid #1abc9c;
   height: 30%;
   width:150px;
   background-color: white;
   margin-right:10px;
-  color: black;
+  color: #1abc9c;
   border-radius:2px;
   margin: auto;
   border-radius: 2px;

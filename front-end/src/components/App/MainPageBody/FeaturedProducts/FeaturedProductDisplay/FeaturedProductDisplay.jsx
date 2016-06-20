@@ -35,9 +35,7 @@ export default class FeaturedProductDisplay extends React.Component {
         </div>
         <div className='product-content'>
           <button className="buy" onClick={ () => { this._addToCart(this.props.id, this.state.count) }}>
-              <span className='cart-icon'>
-                  <i className="fa fa-cart-plus"></i>
-              </span>
+                <i className="fa fa-plus"></i>
           </button>
           <div className="title">{this.props.bundle_name}</div>
           <div className="desc">{this.props.bundle_description}</div>
