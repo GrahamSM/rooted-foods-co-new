@@ -39,7 +39,7 @@
   width:30px;
   height:30px;
   border-radius: 50%;
-  border: 1px solid #e74c3c;
+  border: 1px solid white;
   background-color:white;
   color: #e74c3c;
 
@@ -48,5 +48,6 @@
     background-color: #e74c3c;
     color: white;
     cursor: pointer;
+    transition: all 0.5s ease;
   }
 }

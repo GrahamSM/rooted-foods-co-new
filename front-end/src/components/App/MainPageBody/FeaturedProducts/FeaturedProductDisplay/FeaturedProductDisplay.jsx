@@ -35,9 +35,7 @@ export default class FeaturedProductDisplay extends React.Component {
         </div>
         <div className='product-content'>
           <button className="buy" onClick={ () => { this._addToCart(this.props.id, this.state.count) }}>
-              <span className='cart-icon'>
-                  <i className="fa fa-cart-plus"></i>
-              </span>
+                <i className="fa fa-plus"></i>
           </button>
           <div className="title">{this.props.bundle_name}</div>
           <div className="desc">{this.props.bundle_description}</div>
@@ -60,12 +58,14 @@ export default class FeaturedProductDisplay extends React.Component {
         headers: {
             'X-ACCESS-TOKEN': token
         },
-        data: JSON.stringify({token: token, id: id, quantity: quantity})
+        data: JSON.stringify({token: token, id: id, quantity: quantity, is_bundle: true})
       }).then(response => {
         this.showAlert("Item added to cart")
       }).catch((error) => {
         this.showAlert(error.message)
       })
+    }else{
+      this.showAlert("You must be logged in!")
     }
   }
 
