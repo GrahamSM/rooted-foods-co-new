@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160617170413) do
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.boolean  "recurring"
-    t.boolean  "active"
+    t.boolean  "active",         default: true
     t.integer  "transaction_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -86,10 +86,10 @@ ActiveRecord::Schema.define(version: 20160617170413) do
 
   create_table "sales", force: :cascade do |t|
     t.integer  "amount"
-    t.boolean  "refunded"
-    t.boolean  "paid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "refunded",   default: false
+    t.boolean  "paid",       default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "order_id"
   end
 

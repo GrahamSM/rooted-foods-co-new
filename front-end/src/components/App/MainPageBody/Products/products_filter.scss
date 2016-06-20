@@ -7,7 +7,7 @@
 
 .category-filter{
   width: 10%;
-  color: white;
+  color: black;
   font-size: 1.25vw;
   &:hover{
     cursor: pointer;
@@ -15,7 +15,7 @@
 }
 
 .meat{
-  background: #e74c3c;
+  background: white;
   border: 1px solid #c0392b;
   &:hover{
     cursor: pointer;
@@ -24,7 +24,7 @@
 }
 
 .produce{
-  background: #2ecc71;
+  background: white;
   border: 1px solid #27ae60;
   &:hover{
     cursor: pointer;
@@ -33,7 +33,7 @@
 }
 
 .dairy{
-  background: #3498db;
+  background: white;
   border: 1px solid #2980b9;
   &:hover{
     cursor: pointer;
@@ -42,7 +42,7 @@
 }
 
 .grains{
-  background: #EB9532;
+  background: white;
   border: 1px solid #E87E04;
   &:hover{
     cursor: pointer;

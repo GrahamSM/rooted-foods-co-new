@@ -8,7 +8,7 @@ import ProductsFilter from './ProductsFilter.jsx'
 export default class AllProducts extends React.Component {
     constructor() {
       super();
-      this.state = {loading: true, count: 0}
+      this.state = {loading: true, count: 0, filter_by: null}
     }
 
     componentWillMount = () =>{
@@ -20,28 +20,45 @@ export default class AllProducts extends React.Component {
           headers: new Headers()
       }).then(products => {
         this.setState({products})
+        this.setState({categories: [1,2,3,4]})
         this.setState({loading: false})
       }).catch((error) => {
           alert(error.message);
       })
     }
 
-    displayAllProducts = () =>{
-      let all_products = []
-      for (var i = 0; i<this.state.products.length; i++){
-        all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count}/>)
-      }
-      return all_products
-    }
-
     render() {
       return (
         <div className="products-container">
-          <ProductsFilter />
+          <div className="products-filter">
+            <ProductsFilter className='category-filter meat' title="Meat" category_id="1" filterProducts={this._filterProducts} />
+            <ProductsFilter className='category-filter produce' title="Produce" category_id="2" filterProducts={this._filterProducts} />
+            <ProductsFilter className='category-filter grains' title="Grains" category_id="3" filterProducts={this._filterProducts} />
+          </div>
           <div className="list">
             {!this.state.loading && this.displayAllProducts()}
           </div>
         </div>
       );
+    }
+
+    displayAllProducts = () =>{
+      let all_products = []
+      for (var i = 0; i<this.state.products.length; i++){
+        if (this.state.filter_by === null){
+          all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count} category_id={this.state.products[i].category_id} />)
+        }else if (this.state.products[i].category_id === this.state.filter_by){
+          all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count} category_id={this.state.products[i].category_id} />)
+        }
+      }
+      return all_products
+    }
+
+    _filterProducts = (category_id) =>{
+      if (this.state.filter_by === parseInt(category_id)){
+        this.setState({filter_by: null}) //Display all products
+      }else{
+        this.setState({filter_by: parseInt(category_id)}) //Filter by the passed in category_id
+      }
     }
 }
