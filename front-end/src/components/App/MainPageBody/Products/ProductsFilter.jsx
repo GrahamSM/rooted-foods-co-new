@@ -8,12 +8,7 @@ export default class ProductsFilter extends React.Component {
 
     render() {
       return (
-        <div className="products-filter">
-          <button className='category-filter meat'>Meat</button>
-          <button className='category-filter produce'>Produce</button>
-          <button className='category-filter grains'>Grains</button>
-          <button className='category-filter dairy'>Eggs & Dairy</button>
-        </div>
+          <button className={this.props.className} onClick={ () => { this.props.filterProducts(this.props.category_id)}}>{this.props.title}</button>
       );
     }
 }
