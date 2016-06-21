@@ -35,6 +35,7 @@ export default class SignUpForm extends React.Component {
                 email: document.getElementById('email').value,
                 first_name: document.getElementById('first-name').value,
                 last_name: document.getElementById('last-name').value,
+                shipping_postal_code: document.getElementById('postal').value,
                 password: document.getElementById('password').value,
                 password_confirmation: document.getElementById('password-confirmation').value,
                 username: document.getElementById('username').value
@@ -80,6 +81,10 @@ export default class SignUpForm extends React.Component {
                     <div className="input">
                         <label htmlFor="email">Email Address</label>
                         <input type="email" id="email" name="email" autoCorrect="off" autoCapitalize="off" maxLength="64"></input>
+                    </div>
+                    <div className="input">
+                        <label htmlFor="postal">Delivery Postal Code</label>
+                        <input type="text" id="postal" name="postal" autoCorrect="off" autoCapitalize="off" maxLength="6"></input>
                     </div>
                     <div className="input clearfix">
                         <label htmlFor="password">Password</label>
