@@ -27,10 +27,6 @@ export default class AddressInfoForm extends React.Component {
                   <label htmlFor="shipping-province">Shipping Province</label>
                   <input type="text" id="shipping-province" name="shipping-province" autoCorrect="off" autoCapitalize="words" maxLength="32"></input>
               </div>
-              <div className="input">
-                  <label htmlFor="shipping-postal">Shipping Postal Code</label>
-                  <input type="text" id="shipping-postal" name="shipping-postal" autoCorrect="off" autoCapitalize="off" maxLength="64"></input>
-              </div>
               <input type="submit" id="submit" name="submit" value="Submit"></input>
           </form>
       </div>

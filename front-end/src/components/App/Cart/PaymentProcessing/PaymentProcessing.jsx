@@ -22,8 +22,7 @@ export default class ProcessPayment extends React.Component {
           phone: document.getElementById('phone').value,
           shipping_address: document.getElementById('shipping-address').value,
           shipping_city: document.getElementById('shipping-city').value,
-          shipping_province: document.getElementById('shipping-province').value,
-          shipping_postal_code: document.getElementById('shipping-postal').value
+          shipping_province: document.getElementById('shipping-province').value
       }, () => {
           Reqwest({
               url: "http://localhost:3000/users/" + token,
@@ -49,13 +48,14 @@ export default class ProcessPayment extends React.Component {
     }
 
     _updatePaymentInfoStatus() {
-      this.setState({paymentInfoSubmitted: true})
+      localStorage.has_payment_info = true;
+      this.setState({paymentInfoSubmitted: localStorage.has_payment_info})
     }
 
     render() {
         return (
           <div>
-            { this.state.paymentInfoSubmitted ? this._renderPaymentForm() : this._renderPaymentInfoForm() }
+            { (this.state.paymentInfoSubmitted === "true") ? this._renderPaymentForm() : this._renderPaymentInfoForm() }
           </div>
         )
     }
