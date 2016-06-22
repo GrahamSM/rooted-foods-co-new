@@ -30,8 +30,8 @@ const HeaderMenu = ({buttonClickHandler, isAuthenticated, viewCartHandler}) => {
 
     return (
         <div className='header-menu'>
-            {headerComp}
-            {cart}
+          {headerComp}
+          {cart}
         </div>
     );
 }

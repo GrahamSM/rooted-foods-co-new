@@ -9,6 +9,7 @@ class Order < ActiveRecord::Base
 # TODO: Clean up these methods
   def update_products(options)
     quantity = options[:quantity]
+    binding.pry
     is_bundle = options[:is_bundle]
     if (is_bundle)
       bundle = Bundle.find(options[:id])
