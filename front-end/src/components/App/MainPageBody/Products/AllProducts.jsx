@@ -3,12 +3,13 @@ import styles from './all_products.scss';
 import Reqwest from 'reqwest';
 import IndividualProduct from './IndividualProduct.jsx'
 import ProductsFilter from './ProductsFilter.jsx'
+import ProductSearch from './ProductSearch.jsx'
 
 
 export default class AllProducts extends React.Component {
     constructor() {
       super();
-      this.state = {loading: true, count: 0, filter_by: null}
+      this.state = {loading: true, count: 0, filter_by: null, search_query: null}
     }
 
     render() {
@@ -18,6 +19,7 @@ export default class AllProducts extends React.Component {
             <ProductsFilter className='category-filter meat' title="Meat" category_id="1" filterProducts={this._filterProducts} />
             <ProductsFilter className='category-filter produce' title="Produce" category_id="2" filterProducts={this._filterProducts} />
             <ProductsFilter className='category-filter grains' title="Grains" category_id="3" filterProducts={this._filterProducts} />
+            <ProductSearch productSearch={this._productSearch} />
           </div>
           <div className="list">
             {!this.state.loading && this.displayAllProducts()}
@@ -27,6 +29,7 @@ export default class AllProducts extends React.Component {
     }
 
     componentWillMount = () =>{
+      console.log(this.state.search_query)
       Reqwest({
           url: "http://localhost:3000/products",
           type: 'json',
@@ -42,13 +45,21 @@ export default class AllProducts extends React.Component {
       })
     }
 
+    _productSearch = () =>{
+      let q = $('#search52').val();
+      if (q.length > 0){
+        this.setState({search_query: q})
+      }
+
+    }
+
     displayAllProducts = () =>{
       let all_products = []
       for (var i = 0; i<this.state.products.length; i++){
         if (this.state.filter_by === null){
-          all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count} category_id={this.state.products[i].category_id} />)
+          all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count} key={this.state.products[i].id} category_id={this.state.products[i].category_id} />)
         }else if (this.state.products[i].category_id === this.state.filter_by){
-          all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count} category_id={this.state.products[i].category_id} />)
+          all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count} key={this.state.products[i].id} category_id={this.state.products[i].category_id} />)
         }
       }
       return all_products

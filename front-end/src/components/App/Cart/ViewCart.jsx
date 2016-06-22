@@ -53,9 +53,8 @@ export default class ViewCart extends React.Component {
             headers: {
                 'X-ACCESS-TOKEN': token
             },
-        }).then(response => {
+        }).then((response) => {
           return response;
-          // TODO: Use toaster
         }).catch((error) => {
             alert(error.message);
             // TODO: Use toaster
