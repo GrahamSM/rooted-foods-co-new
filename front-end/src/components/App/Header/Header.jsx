@@ -48,7 +48,8 @@ export default class Header extends React.Component {
     }
 
     _viewProfileHandler = () =>{
-      debugger;
+      const {router} = this.context;
+      router.push('profile')
     }
 
     _viewCartHandler = () => {
