@@ -9,7 +9,7 @@ import ProductSearch from './ProductSearch.jsx'
 export default class AllProducts extends React.Component {
     constructor() {
       super();
-      this.state = {loading: true, count: 0, filter_by: null, search_query: null}
+      this.state = {loading: true, count: 0, filter_by: null}
     }
 
     render() {
@@ -29,12 +29,16 @@ export default class AllProducts extends React.Component {
     }
 
     componentWillMount = () =>{
-      console.log(this.state.search_query)
+      this._fetchProducts(null);
+    }
+
+    _fetchProducts = (search_params) =>{
       Reqwest({
           url: "http://localhost:3000/products",
           type: 'json',
           method: 'get',
           contentType: 'application/json',
+          data: {search_params},
           headers: new Headers()
       }).then(products => {
         this.setState({products})
@@ -45,16 +49,15 @@ export default class AllProducts extends React.Component {
       })
     }
 
-    _productSearch = () =>{
+    _productSearch = (e) =>{
+      e.preventDefault();
       let q = $('#search52').val();
-      if (q.length > 0){
-        this.setState({search_query: q})
-      }
-
+      this._fetchProducts(q);
     }
 
     displayAllProducts = () =>{
       let all_products = []
+      console.log(this.state.search_query)
       for (var i = 0; i<this.state.products.length; i++){
         if (this.state.filter_by === null){
           all_products.push(<IndividualProduct product_id={this.state.products[i].id} title={this.state.products[i].name} description={this.state.products[i].description} image={this.state.products[i].images} price={this.state.products[i].price} count={this.state.count} key={this.state.products[i].id} category_id={this.state.products[i].category_id} />)
