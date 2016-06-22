@@ -3,8 +3,13 @@ class ProductsController < ApplicationController
   skip_before_filter :ensure_authenticated_user
 
   def index
-    products = Product.all
-    render json: products, status: 200
+    if params[:search_params]
+      products = Product.single_search(params[:search_params])
+      render json: products, status: 200
+    else
+      products = Product.all
+      render json: products, status: 200
+    end
   end
 
   def show

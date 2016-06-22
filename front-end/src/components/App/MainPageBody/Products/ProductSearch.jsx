@@ -8,7 +8,7 @@ export default class ProductSearch extends React.Component {
 
   render() {
     return (
-      <form className='product-search-form' method="get" action="#" id="searchbox5" onSubmit={this.props.productSearch}>
+      <form className='product-search-form' id="searchbox5" onSubmit={this.props.productSearch}>
         <input id="search52" name="q" type="text" size="10" placeholder="Search..." />
       </form>
     );
