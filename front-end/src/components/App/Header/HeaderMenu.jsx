@@ -3,7 +3,7 @@ import styles from './header_menu.scss';
 import MainTitle from './MainTitle.jsx';
 import HeaderBtn from './HeaderBtn.jsx'
 
-const HeaderMenu = ({buttonClickHandler, isAuthenticated, viewCartHandler}) => {
+const HeaderMenu = ({buttonClickHandler, isAuthenticated, viewCartHandler, viewProfileHandler}) => {
 
     const buttons = isAuthenticated
         ? [
@@ -24,6 +24,8 @@ const HeaderMenu = ({buttonClickHandler, isAuthenticated, viewCartHandler}) => {
 
     const cart = isAuthenticated ? <button className="view-cart" onClick={viewCartHandler}><span className='cart-icon'><i className="fa fa-shopping-cart"></i></span></button> : null;
 
+    const profile = isAuthenticated ? <button className='view-cart' onClick={viewProfileHandler}><span className='cart-icon'><i className="fa fa-user"></i></span></button> : null;
+
     const headerComp = buttons.map(({label, route}) => <HeaderBtn {...{label, route}} key={label} clickHandler={buttonClickHandler}/>)
 
 
@@ -32,6 +34,7 @@ const HeaderMenu = ({buttonClickHandler, isAuthenticated, viewCartHandler}) => {
         <div className='header-menu'>
           {headerComp}
           {cart}
+          {profile}
         </div>
     );
 }
