@@ -12,7 +12,7 @@ class OrderItemsController < ApplicationController
 
   def destroy
     current_order = current_user.get_current_order
-    order_item = current_order.order_items.where(product_id: [params[:id]]).first
+    order_item = current_order.order_items.find(params[:id])
     order_item.destroy!
     render json: {}, status: 200
   end
