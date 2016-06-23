@@ -10,7 +10,6 @@ export default class ProfilePage extends React.Component{
         <div className='filter-btn-container'>
           <FilterBtn className="test-btn" label="Favourites"/>
           <FilterBtn className="test-btn" label="Order History"/>
-          <FilterBtn className="test-btn" label="Personalization"/>
         </div>
         <div className='account-page-container'>
           <div className='account-page-col-1'>
@@ -20,5 +19,13 @@ export default class ProfilePage extends React.Component{
         </div>
       </div>
     )
+  }
+
+  _getOrderHistory = () =>{
+
+  }
+
+  _getFavourites = () =>{
+
   }
 }
