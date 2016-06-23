@@ -2,7 +2,10 @@ class OrdersController < ApplicationController
 
   def index
     orders = Order.where(user_id: current_user.id)
-    # TODO: PARSE DATA
+    respond_to do |format|
+       format.html
+       format.json { render :json => orders.to_json(:include => {:order_items => {:include => [:product, :bundle => {:include => :products}]}})}
+    end
   end
 
   def new
