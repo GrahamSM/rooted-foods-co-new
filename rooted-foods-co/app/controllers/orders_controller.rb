@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
 
+  def index
+    orders = Order.where(user_id: current_user.id)
+    # TODO: PARSE DATA
+  end
+
   def new
     order = Order.new
   end
