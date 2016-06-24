@@ -35,7 +35,7 @@ export default class CartItem extends React.Component {
     _removeCartItem = () =>{
       let token = localStorage.access_token
       Reqwest({
-          url: "http://localhost:3000/order_items/" + this.props.product_id,
+          url: "http://localhost:3000/order_items/" + this.props.order_item_id,
           type: 'json',
           method: 'delete',
           contentType: 'application/json',

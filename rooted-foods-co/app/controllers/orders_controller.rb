@@ -1,5 +1,22 @@
 class OrdersController < ApplicationController
 
+  def index
+    orders = Order.where(user_id: current_user.id)
+    respond_to do |format|
+       format.html
+       format.json { render :json => orders.to_json(:include => {:order_items => {:include => [:product, :bundle => {:include => :products}]}})}
+    end
+  end
+
+  def show
+    order = current_user.orders.where(active: true, completed: false).first
+    if (order)
+      render json: order.to_json(:include => {:order_items => {:include => [:product, :bundle => {:include => :products}]}})
+    else
+      render json: {}, status: 200
+    end
+  end
+
   def new
     order = Order.new
   end

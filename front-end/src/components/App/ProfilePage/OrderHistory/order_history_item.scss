@@ -1,0 +1,40 @@
+.order-history-container{
+  width:100%;
+  border: 1px solid black;
+}
+
+.order-history-item{
+  width: 75%;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin:25px;
+  list-style: none;
+}
+
+.order-time{
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid black;
+}
+
+.item-header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.item-body{
+  display: flex;
+  align-items: center;
+}
+
+.item-information{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-image{
+  margin:10px;
+}

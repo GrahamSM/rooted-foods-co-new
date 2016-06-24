@@ -17,7 +17,7 @@ export default class Header extends React.Component {
         return (
             <div className='header'>
                 <MainTitle/>
-                <HeaderMenu isAuthenticated={!!localStorage.access_token} buttonClickHandler={this._handleClick} viewCartHandler={this._viewCartHandler}/>
+                <HeaderMenu isAuthenticated={!!localStorage.access_token} buttonClickHandler={this._handleClick} viewCartHandler={this._viewCartHandler} viewProfileHandler={this._viewProfileHandler}/>
             </div>
         );
     };
@@ -45,6 +45,11 @@ export default class Header extends React.Component {
         } else {
             this.context.router.push(route);
         }
+    }
+
+    _viewProfileHandler = () =>{
+      const {router} = this.context;
+      router.push('profile')
     }
 
     _viewCartHandler = () => {

@@ -9,13 +9,10 @@ class Order < ActiveRecord::Base
 # TODO: Clean up these methods
   def update_products(options)
     quantity = options[:quantity]
-    binding.pry
     is_bundle = options[:is_bundle]
     if (is_bundle)
       bundle = Bundle.find(options[:id])
-      bundle.products.each do |product|
-        add_bundle_product(product, quantity, bundle)
-      end
+      OrderItem.create!(order_id: self.id, bundle_id: bundle.id, quantity: quantity) #products of an bundle OrderItem are found through the association to the bundle
     else
       product = Product.find(options[:id])
       add_product(product, quantity)
@@ -36,16 +33,16 @@ def add_product(product, quantity)
   end
 end
 
-def add_bundle_product(product, quantity, bundle)
-  order_item = OrderItem.where(order_id: self.id, product_id: product.id).first
-  if (order_item)
-    order_item.quantity += quantity
-    order_item.save
-  else
-    self.products << product
-    order_item = OrderItem.where(order_id: self.id, product_id: product.id).first
-    order_item.quantity = quantity
-    order_item.bundle = bundle
-    order_item.save
-  end
-end
+# def add_bundle_product(product, quantity, bundle)
+#   order_item = OrderItem.where(order_id: self.id, product_id: product.id).first
+#   if (order_item)
+#     order_item.quantity += quantity
+#     order_item.save
+#   else
+#     self.products << product
+#     order_item = OrderItem.where(order_id: self.id, product_id: product.id).first
+#     order_item.quantity = quantity
+#     order_item.bundle = bundle
+#     order_item.save
+#   end
+# end

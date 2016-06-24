@@ -1,0 +1,10 @@
+.test-btn{
+  width: 15%;
+  color: black;
+  font-size: 1.25vw;
+  border: 1px solid black;
+  background: white;
+  &:hover{
+    cursor: pointer;
+  }
+}

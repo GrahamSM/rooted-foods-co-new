@@ -46,7 +46,7 @@ export default class ViewCart extends React.Component {
         if (localStorage.access_token){
           let token = localStorage.access_token
         return Reqwest({
-            url: "http://localhost:3000/order_items",
+            url: "http://localhost:3000/orders/" + token,
             type: 'json',
             method: 'get',
             contentType: 'application/json',
@@ -65,29 +65,24 @@ export default class ViewCart extends React.Component {
     _setCartComp(){
       if (!this.state.loading){
         let items = []
-        if (this.state.cart_items.length){
-          for (var i = 0; i < this.state.cart_items.length; i++){
-            let quantity = this.state.cart_items[i].quantity
-            items.push(<CartItem quantity={quantity} product_id={this.state.cart_items[i].product_id} name={this.state.cart_items[i].product.name} price={this.state.cart_items[i].product.price} image={this.state.cart_items[i].product.images} updateCart={this._updateCart} key={this.state.cart_items[i].id} />)
-          }
-          return items;
-        }else{
-          return null
+        let order_items = this.state.order.order_items
+        for (var i = 0; i < order_items.length; i++){
+          let name = this.getName(order_items[i])
+          let price = this.getCostOfItem(order_items[i])
+          let image = this.getImageOfItem(order_items[i])
+          items.push(<CartItem quantity={order_items[i].quantity} name={name} price={price} image={image} updateCart={this._updateCart} order_item_id={order_items[i].id} key={order_items[i].id} />)
         }
+        return items;
       }
     }
 
     _updateCart = () =>{
       this.setState({loading: true})
       this._getUserProducts()
-      .then((cart_items) => {
-        this.setState({cart_items, loading: false})
-        let totalCost = 0;
-        for (var i = 0; i < cart_items.length; i++){
-          totalCost += cart_items[i].quantity*cart_items[i].product.price
-        }
+      .then((order) => {
+        this.setState({order, loading: false})
+        let totalCost = this.getTotalCost(order)
         this.setState({totalCost})
-
       })
       .catch((error) => {
         alert(error.messages);
@@ -95,6 +90,47 @@ export default class ViewCart extends React.Component {
       })
     }
 
+    getTotalCost(order){
+      let order_items = order.order_items
+      let total_cost = 0
+      for (var i = 0; i < order_items.length; i++){
+        total_cost += this.getCostOfItem(order_items[i])
+      }
+      return total_cost
+    }
+
+    isBundle(order_item){
+      return !(order_item.product_id)
+    }
+
+    getCostOfBundle(bundle){
+      return parseInt(bundle.price)
+    }
+
+    getName(order_item){
+      if (this.isBundle(order_item)){
+        return "Bundle"
+      } else{
+        return order_item.product.name
+      }
+    }
+
+    getCostOfItem(order_item){
+      if (this.isBundle(order_item)){
+        return this.getCostOfBundle(order_item.bundle)
+      }
+      else{
+        return parseInt(order_item.product.price)
+      }
+    }
+
+    getImageOfItem(order_item){
+      if (this.isBundle(order_item)){
+        return order_item.bundle.image
+      }else{
+        return order_item.product.images
+      }
+    }
 
     _setCartTotal(){
       if (!this.state.loading){
