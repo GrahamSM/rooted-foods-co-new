@@ -111,7 +111,7 @@ export default class ViewCart extends React.Component {
       if (this.isBundle(order_item)){
         return "Bundle"
       } else{
-        return order_item.name
+        return order_item.product.name
       }
     }
 
